@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.25, -0.5)
 [node name="SwayPivot" type="Node3D" parent="CameraArm/Camera3D/HandPivot"]
 
 [node name="Sketchfab_Scene" parent="CameraArm/Camera3D/HandPivot/SwayPivot" instance=ExtResource("2_qhqgy")]
-transform = Transform3D(1.9608387, -0.32618427, 0.22071795, -0.35519883, -1.9488273, 0.27551368, 0.17013665, -0.30931872, -1.9685947, 0.41607678, -0.34478593, -1.0399387)
+transform = Transform3D(1.9608387, -0.32618427, 0.22071794, -0.35519883, -1.9488273, 0.27551365, 0.17013665, -0.30931872, -1.9685946, 0.41607678, -0.34478593, -1.0399387)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraArm/Camera3D/HandPivot"]
 libraries = {

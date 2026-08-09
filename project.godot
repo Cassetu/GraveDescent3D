@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Grave Descent"
-run/main_scene="uid://c1xlthly5ctoc"
+run/main_scene="uid://fshcrx8vfsxi"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,6 +26,8 @@ GameManager="*res://scripts/systems/game_manager.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
 window/stretch/scale_mode="integer"

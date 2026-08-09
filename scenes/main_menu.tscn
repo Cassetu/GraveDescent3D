@@ -7,7 +7,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
 font = ExtResource("3_bqqt6")
-font_size = 13
+font_size = 76
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_wu84c")
@@ -38,73 +38,52 @@ theme_override_constants/separation = 6
 alignment = 1
 
 [node name="NewRunButton" type="Button" parent="MenuBlock"]
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(441, 114)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
 theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 64
 text = "NEW RUN"
 
 [node name="ContinueButton" type="Button" parent="MenuBlock"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(441, 114)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
 theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 64
 text = "CONTINUE"
 
 [node name="QuitButton" type="Button" parent="MenuBlock"]
-custom_minimum_size = Vector2(280, 48)
+custom_minimum_size = Vector2(441, 114)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
 theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 64
 text = "QUIT"
 
 [node name="TitleBlock" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -393.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleBlock"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 64
 alignment = 1
-
-[node name="RuneLine" type="HBoxContainer" parent="TitleBlock/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="TitleBlock/VBoxContainer/RuneLine"]
-custom_minimum_size = Vector2(120, 1)
-layout_mode = 2
-color = Color(0.41960785, 0.30980393, 0.18039216, 1)
-
-[node name="Label" type="Label" parent="TitleBlock/VBoxContainer/RuneLine"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.41960785, 0.30980393, 0.18039216, 1)
-theme_override_font_sizes/font_size = 16
-text = "✦ ✦ ✦"
-horizontal_alignment = 1
-
-[node name="ColorRect2" type="ColorRect" parent="TitleBlock/VBoxContainer/RuneLine"]
-custom_minimum_size = Vector2(120, 1)
-layout_mode = 2
-color = Color(0.41960785, 0.30980393, 0.18039216, 1)
 
 [node name="TitleLabel" type="Label" parent="TitleBlock/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("1_ekxnf")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 156
 text = "DUNMERE"
 horizontal_alignment = 1
 
@@ -134,6 +113,11 @@ layout_mode = 2
 color = Color(0.3529412, 0.24313726, 0.11764706, 1)
 script = ExtResource("2_bqqt6")
 
+[node name="NewRunConfirmDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+dialog_text = "Starting a new run will overwrite your current save. Continue?"
+
 [connection signal="pressed" from="MenuBlock/NewRunButton" to="." method="_on_new_run_button_pressed"]
 [connection signal="pressed" from="MenuBlock/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MenuBlock/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="confirmed" from="NewRunConfirmDialog" to="." method="_on_new_run_confirm_dialog_confirmed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4hi37v4urwgg"]
+
+[ext_resource type="PackedScene" uid="uid://cir5v8q7t15ji" path="res://assets/decorum/door/medieval_door.glb" id="1_xsirr"]
+
+[node name="Door_model" instance=ExtResource("1_xsirr")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Cube_004" parent="Sketchfab_model/a3991224f78d4dbebb59bb5f8b21aa8b_fbx/Object_2/RootNode" index="1"]
+transform = Transform3D(1.9470718e-07, -1.6292067e-07, 1, 0, 1, 1.6292067e-07, -1, -3.1721824e-14, 1.9470718e-07, -179.02373, 821.6321, -43.822193)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://e04b2rn23701"]
+
+[ext_resource type="Script" uid="uid://x3gswcrsnfln" path="res://scripts/systems/dungeon_runner.gd" id="1_k41ts"]
+[ext_resource type="PackedScene" uid="uid://b68gppu7mk8eg" path="res://scenes/hud.tscn" id="2_0rsuj"]
+
+[node name="DungeonRunner" type="Node3D"]
+script = ExtResource("1_k41ts")
+
+[node name="HUD" parent="." instance=ExtResource("2_0rsuj")]

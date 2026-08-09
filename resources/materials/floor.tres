@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bkeg3u3ra6sqh"]
+
+[ext_resource type="Texture2D" uid="uid://ilhhxhlxtv6h" path="res://assets/rooms/base/base_dungeon_floor_sharandra_deviant.png" id="1_wp2oc"]
+[ext_resource type="Texture2D" uid="uid://bxavs3jmars5b" path="res://assets/textures/dungeon_floor_sharandra_deviant_normal.png" id="2_oddkv"]
+
+[resource]
+albedo_texture = ExtResource("1_wp2oc")
+normal_enabled = true
+normal_texture = ExtResource("2_oddkv")
+ao_enabled = true
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+uv1_triplanar = true
+uv1_world_triplanar = true

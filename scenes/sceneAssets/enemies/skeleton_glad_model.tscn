@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd0i6487brnj5"]
+
+[ext_resource type="PackedScene" uid="uid://ctoxyasjktxf2" path="res://assets/enemies/skelly/Skeleton - low tier enemy.glb" id="1_iygy2"]
+
+[node name="Skeleton - low tier enemy" instance=ExtResource("1_iygy2")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

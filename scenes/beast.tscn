@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://buyc7b28qh788"]
+
+[ext_resource type="Script" uid="uid://yhjkqoalu05d" path="res://scripts/enemies/beast.gd" id="1_qx1v6"]
+[ext_resource type="PackedScene" uid="uid://dgny5icsyypqe" path="res://scenes/sceneAssets/enemies/beast_model.tscn" id="2_nfgux"]
+[ext_resource type="Script" uid="uid://dns1t3j62rwio" path="res://scripts/enemies/beast_anim.gd" id="3_qx1v6"]
+[ext_resource type="AudioStream" uid="uid://bvfqe4hr1rlue" path="res://assets/audio/enemies/beast/flesh-beast.mp3" id="4_eu2dt"]
+[ext_resource type="AudioStream" uid="uid://cmgswtjdi4xew" path="res://assets/audio/enemies/beast/beast.tres" id="5_jx52e"]
+[ext_resource type="AudioStream" uid="uid://ccalt5o6x8k3n" path="res://assets/audio/walk-beast.mp3" id="5_k885b"]
+[ext_resource type="Material" uid="uid://dcfd21r1osbj7" path="res://resources/materials/blood.tres" id="5_vti8j"]
+[ext_resource type="AudioStream" uid="uid://dbjm3ccnbnlwr" path="res://assets/audio/enemies/beast/claw-beast.mp3" id="6_glk8t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2mh8"]
+radius = 1.0014648
+height = 2.8935547
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b2mh8"]
+
+[sub_resource type="Curve" id="Curve_k885b"]
+_data = [Vector2(0.015151501, 0.6292135), 0.0, 0.0, 0, 0, Vector2(0.21969697, 0.73033714), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0.34831464), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jx52e"]
+curve = SubResource("Curve_k885b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k885b"]
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_jx52e")
+color = Color(0.31, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jx52e"]
+material = ExtResource("5_vti8j")
+size = Vector2(1, 1)
+
+[node name="Beast" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_qx1v6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44677734, 0)
+shape = SubResource("CapsuleShape3D_b2mh8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_b2mh8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="beast_model" parent="." instance=ExtResource("2_nfgux")]
+transform = Transform3D(-1.8, 0, -2.7179243e-07, 0, 1.8, 0, 2.7179243e-07, 0, -1.8, 0, -1.0305665, 0)
+script = ExtResource("3_qx1v6")
+
+[node name="FleshSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0416963, -0.20923424)
+stream = ExtResource("4_eu2dt")
+volume_db = -10.0
+max_polyphony = 5
+bus = &"DungeonReverb"
+attenuation_filter_db = -32.0
+
+[node name="RoarSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8520818, -0.92400944)
+stream = ExtResource("5_jx52e")
+volume_db = -10.0
+max_polyphony = 5
+bus = &"DungeonReverb"
+attenuation_filter_db = -32.0
+
+[node name="WalkSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34695935, 0)
+stream = ExtResource("5_k885b")
+volume_db = -7.0
+max_polyphony = 5
+bus = &"DungeonReverb"
+attenuation_filter_db = -32.0
+
+[node name="ClawSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00059890747, -1.0372634)
+stream = ExtResource("6_glk8t")
+volume_db = 1.0
+pitch_scale = 2.0
+max_polyphony = 5
+bus = &"DungeonReverb"
+attenuation_filter_db = -32.0
+
+[node name="BloodParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1853135, -0.6799071)
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_k885b")
+draw_pass_1 = SubResource("PlaneMesh_jx52e")

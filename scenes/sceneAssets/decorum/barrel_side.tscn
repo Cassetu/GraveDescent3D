@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://befhmcwttk13d"]
+
+[ext_resource type="PackedScene" uid="uid://bevbfjnfc7sjj" path="res://assets/decorum/barrel_side/basic_barrel.glb" id="1_qr60i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e24j4"]
+size = Vector3(2.9422607, 2.6124268, 2.264492)
+
+[node name="BarrelSide" instance=ExtResource("1_qr60i")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0635376, 1.3422852, 0.009263992)
+shape = SubResource("BoxShape3D_e24j4")

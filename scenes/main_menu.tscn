@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=3 uid="uid://fshcrx8vfsxi"]
+
+[ext_resource type="FontFile" uid="uid://dafh2mkgwjuj5" path="res://assets/font/CinzelDecorative-Bold.ttf" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://bwrn6pjhmbobn" path="res://scripts/systems/main_menu.gd" id="1_wu84c"]
+[ext_resource type="Script" uid="uid://boy2rv2w5xry1" path="res://scripts/systems/spin.gd" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://kh43dm252o17" path="res://assets/font/CinzelDecorative-Regular.ttf" id="3_bqqt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font = ExtResource("3_bqqt6")
+font_size = 13
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_wu84c")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.039215688, 0.03137255, 0.023529412, 1)
+
+[node name="MenuBlock" type="VBoxContainer" parent="."]
+z_index = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="NewRunButton" type="Button" parent="MenuBlock"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
+theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "NEW RUN"
+
+[node name="ContinueButton" type="Button" parent="MenuBlock"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
+theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "CONTINUE"
+
+[node name="QuitButton" type="Button" parent="MenuBlock"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
+theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "QUIT"
+
+[node name="TitleBlock" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleBlock"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="RuneLine" type="HBoxContainer" parent="TitleBlock/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="TitleBlock/VBoxContainer/RuneLine"]
+custom_minimum_size = Vector2(120, 1)
+layout_mode = 2
+color = Color(0.41960785, 0.30980393, 0.18039216, 1)
+
+[node name="Label" type="Label" parent="TitleBlock/VBoxContainer/RuneLine"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.30980393, 0.18039216, 1)
+theme_override_font_sizes/font_size = 16
+text = "✦ ✦ ✦"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="TitleBlock/VBoxContainer/RuneLine"]
+custom_minimum_size = Vector2(120, 1)
+layout_mode = 2
+color = Color(0.41960785, 0.30980393, 0.18039216, 1)
+
+[node name="TitleLabel" type="Label" parent="TitleBlock/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 96
+text = "DUNMERE"
+horizontal_alignment = 1
+
+[node name="SubtitleRow" type="HBoxContainer" parent="TitleBlock/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="TitleBlock/VBoxContainer/SubtitleRow"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+color = Color(0.3529412, 0.24313726, 0.11764706, 1)
+script = ExtResource("2_bqqt6")
+
+[node name="Label" type="Label" parent="TitleBlock/VBoxContainer/SubtitleRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3529412, 0.24313726, 0.11764706, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "G R A V E D E S C E N T"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="TitleBlock/VBoxContainer/SubtitleRow"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+color = Color(0.3529412, 0.24313726, 0.11764706, 1)
+script = ExtResource("2_bqqt6")
+
+[connection signal="pressed" from="MenuBlock/NewRunButton" to="." method="_on_new_run_button_pressed"]
+[connection signal="pressed" from="MenuBlock/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MenuBlock/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0gf0jkw8kauu"]
+
+[ext_resource type="PackedScene" uid="uid://djtk866ime6w" path="res://assets/decorum/torch/old_torch_with_wall_mounting.glb" id="1_yww6o"]
+[ext_resource type="Script" uid="uid://dhwf6c4c7skgf" path="res://scripts/systems/flicker-omni.gd" id="2_47iqr"]
+[ext_resource type="AudioStream" uid="uid://bkv78xfbskt3d" path="res://assets/audio/fire.mp3" id="4_usptm"]
+[ext_resource type="Texture2D" uid="uid://cd7u25fb2k4y" path="res://assets/textures/fireSheet5x5-removebg-preview.png" id="4_yww6o"]
+
+[sub_resource type="Gradient" id="Gradient_47iqr"]
+offsets = PackedFloat32Array(0, 0.5471698, 0.8773585, 1)
+colors = PackedColorArray(1, 1, 0.6836089, 1, 1, 0.816, 0.53999996, 1, 1, 0.44533336, 0.36, 1, 0.2231029, 0.2231029, 0.22310287, 0.24705882)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j28fv"]
+gradient = SubResource("Gradient_47iqr")
+
+[sub_resource type="Curve" id="Curve_e3wnj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9924243, 0.011235952), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qjxvk"]
+curve = SubResource("Curve_e3wnj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_usptm"]
+lifetime_randomness = 0.6
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 0.39999998
+initial_velocity_max = 0.59999996
+gravity = Vector3(0, 1.5, 0)
+scale_min = 0.79999995
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_qjxvk")
+color_ramp = SubResource("GradientTexture1D_j28fv")
+anim_speed_min = 0.5
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+turbulence_enabled = true
+turbulence_noise_strength = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hufcl"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_yww6o")
+billboard_mode = 3
+particles_anim_h_frames = 5
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_pscga"]
+material = SubResource("StandardMaterial3D_hufcl")
+size = Vector2(0.5, 0.5)
+
+[node name="Torch" instance=ExtResource("1_yww6o")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="Metal Plate_Metal Plate_0" parent="Sketchfab_model/322f5e1e78b540fa9aef7810d086f854_fbx/RootNode/Metal Plate" index="0"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, 0.41432697, 0.1229718)
+light_color = Color(1, 0.776, 0.44, 1)
+light_energy = 8.0
+light_size = 0.385
+shadow_enabled = true
+shadow_blur = 1.5
+distance_fade_enabled = true
+omni_range = 8.0
+omni_attenuation = 0.7
+script = ExtResource("2_47iqr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2"]
+transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, 0.22110309, 0.06326105)
+stream = ExtResource("4_usptm")
+volume_db = -23.0
+autoplay = true
+max_distance = 15.0
+attenuation_filter_db = -32.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32593894, 0.11591971)
+amount = 45
+process_material = SubResource("ParticleProcessMaterial_usptm")
+draw_pass_1 = SubResource("QuadMesh_pscga")

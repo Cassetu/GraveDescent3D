@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c3n85n7b8yboh"
+path.s3tc="res://.godot/imported/old_torch_with_wall_mounting_1.png-563fd9f8cf9e66a9a3d19c6e7f10bbf6.s3tc.ctex"
+path.etc2="res://.godot/imported/old_torch_with_wall_mounting_1.png-563fd9f8cf9e66a9a3d19c6e7f10bbf6.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "58360ace4a1293bd7bc0772b3b132252"
+}
+
+[deps]
+
+source_file="res://assets/decorum/torch/old_torch_with_wall_mounting_1.png"
+dest_files=["res://.godot/imported/old_torch_with_wall_mounting_1.png-563fd9f8cf9e66a9a3d19c6e7f10bbf6.s3tc.ctex", "res://.godot/imported/old_torch_with_wall_mounting_1.png-563fd9f8cf9e66a9a3d19c6e7f10bbf6.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

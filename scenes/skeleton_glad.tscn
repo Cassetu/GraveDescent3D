@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://ip1fw6r67g3y"]
+
+[ext_resource type="Script" uid="uid://bd8s7bsl4k055" path="res://scripts/enemies/skeleton_glad.gd" id="1_dw555"]
+[ext_resource type="Script" uid="uid://d3sbqve4muvdu" path="res://scripts/enemies/skeleton_glad_anim.gd" id="2_hqp85"]
+[ext_resource type="PackedScene" uid="uid://dd0i6487brnj5" path="res://scenes/sceneAssets/enemies/skeleton_glad_model.tscn" id="3_rwv7k"]
+[ext_resource type="AudioStream" uid="uid://birsbgvb3f04t" path="res://assets/audio/bone.mp3" id="4_hqp85"]
+[ext_resource type="AudioStream" uid="uid://b27pegj4vl2l5" path="res://assets/audio/blade_glad.mp3" id="5_rwv7k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cvsy"]
+radius = 0.28466797
+height = 2.4360352
+
+[node name="SkeletonGlad" type="CharacterBody3D" groups=["enemy"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_dw555")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21801758, 0)
+shape = SubResource("CapsuleShape3D_1cvsy")
+
+[node name="SkeletonGladModel" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_hqp85")
+
+[node name="Skeleton - low tier enemy" parent="SkeletonGladModel" instance=ExtResource("3_rwv7k")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.9544617, 0)
+
+[node name="BoneSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7676228e-08, 0.53862655, -0.20219249)
+stream = ExtResource("4_hqp85")
+max_polyphony = 12
+bus = &"DungeonReverb"
+
+[node name="SwordSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2758194e-07, 0.010425806, -1.4593673)
+stream = ExtResource("5_rwv7k")
+max_polyphony = 12
+bus = &"DungeonReverb"

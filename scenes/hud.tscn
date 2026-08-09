@@ -1,0 +1,237 @@
+[gd_scene load_steps=17 format=3 uid="uid://b68gppu7mk8eg"]
+
+[ext_resource type="Script" uid="uid://qcjo5rcfrayy" path="res://scripts/ui/hud.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://cjawnem5jrsox" path="res://scripts/ui/damage_effect.gd" id="2_oo0fn"]
+[ext_resource type="Shader" uid="uid://bwyyc7essxp84" path="res://resources/shaders/blur.gdshader" id="3_5ysmq"]
+[ext_resource type="StyleBox" uid="uid://bfm8xkd6mkndg" path="res://resources/panel/hud-bar-bg.tres" id="3_hd3ao"]
+[ext_resource type="Shader" uid="uid://dha5wqfijovfk" path="res://resources/shaders/vignette.gdshader" id="4_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://8jq6rwonut7r" path="res://assets/textures/icon/soul.png" id="6_047uy"]
+[ext_resource type="Texture2D" uid="uid://cpk0nw2u33agf" path="res://assets/textures/ui/black.png" id="7_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://b2ajralcvbyeq" path="res://assets/textures/icon/ice.png" id="8_hd3ao"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hd3ao"]
+texture = ExtResource("7_0i1j5")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_047uy"]
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 0.7058824)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i1j5"]
+bg_color = Color(0.101960786, 0.07058824, 0.0627451, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.23921569, 0.18039216, 0.11764706, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pdws"]
+bg_color = Color(0.54509807, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
+bg_color = Color(0.5411765, 0.41568628, 0.101960786, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fi6k"]
+shader = ExtResource("3_5ysmq")
+shader_parameter/blur_amount = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uo2fv"]
+shader = ExtResource("4_6fi6k")
+shader_parameter/strength = 1.2
+shader_parameter/color = Color(0.4, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mphia"]
+texture = ExtResource("7_0i1j5")
+
+[node name="HUD" type="CanvasLayer" groups=["hud"]]
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="HealthPanel" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -110.0
+offset_right = 280.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_hd3ao")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HealthPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HealthPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HealthPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/HealthPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92941177, 0.8784314, 0.78431374, 1)
+theme_override_font_sizes/font_size = 22
+text = "HP"
+
+[node name="HpLabel" type="Label" parent="Control/HealthPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92941177, 0.8784314, 0.78431374, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="Control" type="Control" parent="Control/HealthPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="WhiteBar" type="ProgressBar" parent="Control/HealthPanel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = ExtResource("3_hd3ao")
+theme_override_styles/fill = SubResource("StyleBoxFlat_047uy")
+value = 100.0
+show_percentage = false
+
+[node name="RedBar" type="ProgressBar" parent="Control/HealthPanel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_0i1j5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5pdws")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control/HealthPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5411765, 0.47843137, 0.38431373, 1)
+theme_override_font_sizes/font_size = 22
+text = "STA"
+
+[node name="StaminaBar" type="ProgressBar" parent="Control/HealthPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_hd3ao")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hd3ao")
+value = 100.0
+show_percentage = false
+
+[node name="DamageEffectLayer" type="CanvasLayer" parent="."]
+layer = -1
+script = ExtResource("2_oo0fn")
+
+[node name="BlurRect" type="ColorRect" parent="DamageEffectLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_6fi6k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Vignette" type="ColorRect" parent="DamageEffectLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_uo2fv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 135.0
+offset_bottom = 121.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mphia")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+modulate = Color(0.72156864, 0.83137256, 0.9411765, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("6_047uy")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="SoulsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "%d  Souls"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.9098039, 0.78431374, 0.2901961, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_hd3ao")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="ShardsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "%d  Shards"

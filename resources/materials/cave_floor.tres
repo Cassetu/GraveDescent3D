@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dan7aw61jhw43"]
+
+[ext_resource type="Texture2D" uid="uid://kqq5qsu6q6dh" path="res://assets/rooms/cave-a/cave-aglb_rubble.png" id="1_8oj1y"]
+[ext_resource type="Texture2D" uid="uid://cqxyf556b4i5p" path="res://assets/rooms/cave-a/rubble_ambient.png" id="2_n5tyw"]
+[ext_resource type="Texture2D" uid="uid://dx4axkgrlwdhh" path="res://assets/rooms/cave-a/rubble_displacement.png" id="3_uiin2"]
+[ext_resource type="Texture2D" uid="uid://dx2x4gb7nv61" path="res://assets/rooms/cave-a/rubble_specular.png" id="4_agbb5"]
+[ext_resource type="Texture2D" uid="uid://df0yml2kk4k8v" path="res://assets/rooms/cave-a/rubble_normal.png" id="5_vdftr"]
+
+[resource]
+albedo_texture = ExtResource("1_8oj1y")
+metallic = 0.2
+metallic_texture = ExtResource("4_agbb5")
+normal_enabled = true
+normal_texture = ExtResource("5_vdftr")
+ao_enabled = true
+ao_texture = ExtResource("2_n5tyw")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_uiin2")
+uv1_triplanar = true
+uv1_world_triplanar = true

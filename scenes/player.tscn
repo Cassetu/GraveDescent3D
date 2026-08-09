@@ -1,0 +1,188 @@
+[gd_scene load_steps=20 format=3 uid="uid://ckr7l0g3uttdd"]
+
+[ext_resource type="Script" uid="uid://ek0l16agjyfs" path="res://scripts/player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://cgjmm57cg6lvb" path="res://scripts/player/sword.gd" id="2_dqkch"]
+[ext_resource type="PackedScene" uid="uid://jrjwuh0btxo2" path="res://assets/decorum/spartan_sword/spartan_sword.glb" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://b8234kx5il5hm" path="res://scripts/player/interaction_system.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://d0gf0jkw8kauu" path="res://scenes/sceneAssets/torch_handheld.tscn" id="4_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://dv51wo02m6ona" path="res://assets/audio/slash.mp3" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c77oxaobbhobc" path="res://assets/audio/heartbeat.mp3" id="6_smehm"]
+[ext_resource type="AudioStream" uid="uid://f3ib87n3feiq" path="res://assets/audio/impact-hit.mp3" id="6_tuyoq"]
+[ext_resource type="Material" uid="uid://dcfd21r1osbj7" path="res://resources/materials/blood.tres" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://c6bas8cryxy5x" path="res://assets/audio/walk2-player.mp3" id="8_y4r1p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2auju"]
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwayPivot/Sketchfab_Scene:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.13819648, 3.0299394, -2.9613087), Vector3(-0.581704, 3.0091224, -2.9036689)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwayPivot/Sketchfab_Scene:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.41607678, -0.34478593, -1.0399387), Vector3(0.41607678, 0, -0.76032805)]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "swing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwayPivot/Sketchfab_Scene:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.581704, 3.0091224, -2.9036689), Vector3(0.012141694, 3.0310001, -2.978101), Vector3(0.0121416915, 3.0310001, -2.978101), Vector3(0.012141694, 3.0310001, -2.978101)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwayPivot/Sketchfab_Scene:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.41607678, 0, -0.76032805), Vector3(0.41607678, -0.48498964, -1.0820938), Vector3(0.41607678, -0.48498964, -1.3132886), Vector3(0.41607678, -0.48498964, -1.0820938)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
+_data = {
+&"RESET": SubResource("Animation_qlg0r"),
+&"swing": SubResource("Animation_dqkch")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dqkch"]
+
+[sub_resource type="Curve" id="Curve_smehm"]
+_data = [Vector2(0.015151501, 0.6292135), 0.0, 0.0, 0, 0, Vector2(0.21969697, 0.73033714), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0.34831464), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k885b"]
+curve = SubResource("Curve_smehm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ur7pv"]
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_k885b")
+color = Color(0.31, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y4r1p"]
+material = ExtResource("7_fjrip")
+size = Vector2(1, 1)
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_2auju")
+
+[node name="CameraArm" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44064212, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraArm"]
+
+[node name="HandPivot" type="Node3D" parent="CameraArm/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.25, -0.5)
+
+[node name="SwayPivot" type="Node3D" parent="CameraArm/Camera3D/HandPivot"]
+
+[node name="Sketchfab_Scene" parent="CameraArm/Camera3D/HandPivot/SwayPivot" instance=ExtResource("2_qhqgy")]
+transform = Transform3D(1.9608387, -0.32618427, 0.22071795, -0.35519883, -1.9488273, 0.27551368, 0.17013665, -0.30931872, -1.9685947, 0.41607678, -0.34478593, -1.0399387)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraArm/Camera3D/HandPivot"]
+libraries = {
+&"": SubResource("AnimationLibrary_tuyoq")
+}
+
+[node name="Sword" type="Node3D" parent="CameraArm/Camera3D/HandPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.22989368)
+script = ExtResource("2_dqkch")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="CameraArm/Camera3D/HandPivot/Sword"]
+transform = Transform3D(1, 0, 0, 0, 0.09515074, 0.99546283, 0, -0.99546283, 0.09515074, -0.29944035, 0.03463632, -0.9267719)
+shape = SubResource("CylinderShape3D_dqkch")
+
+[node name="Torch" parent="CameraArm/Camera3D/HandPivot" instance=ExtResource("4_ur7pv")]
+transform = Transform3D(1.3359772, 0.32640767, -0.2619591, -0.22323161, 1.2969557, 0.47757, 0.35402277, -0.4139608, 1.2896913, 0.56222034, -0.176682, -0.52789116)
+
+[node name="InteractionSystem" type="Node3D" parent="."]
+script = ExtResource("3_qhqgy")
+
+[node name="SliceSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_qlg0r")
+volume_db = -10.0
+max_polyphony = 12
+bus = &"DungeonReverb"
+
+[node name="PulseSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, -0.6288956, 0.6210241)
+stream = ExtResource("6_smehm")
+volume_db = -10.0
+max_polyphony = 12
+bus = &"DungeonReverb"
+
+[node name="WalkSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, -0.91590047, 0.06642431)
+stream = ExtResource("8_y4r1p")
+volume_db = -27.737
+pitch_scale = 0.9
+max_polyphony = 12
+
+[node name="ImpactSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_tuyoq")
+volume_db = -10.0
+max_polyphony = 12
+bus = &"DungeonReverb"
+
+[node name="BloodParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06059952, -0.40357143)
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_ur7pv")
+draw_pass_1 = SubResource("PlaneMesh_y4r1p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DamageFlash" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.79, 0, 0, 0)

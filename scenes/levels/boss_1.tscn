@@ -1,0 +1,385 @@
+[gd_scene load_steps=24 format=3 uid="uid://csmee2rljnf5m"]
+
+[ext_resource type="Script" uid="uid://cx66tpcyvm7sw" path="res://scripts/systems/boss_room.gd" id="1_lwmw0"]
+[ext_resource type="PackedScene" uid="uid://cfgysvqllubg4" path="res://scenes/sceneAssets/rooms/boss_rooma_model.tscn" id="2_8q6a3"]
+[ext_resource type="PackedScene" uid="uid://bkxx431foukwj" path="res://scenes/chaos.tscn" id="3_8q6a3"]
+[ext_resource type="PackedScene" uid="uid://s0mlmqvuyxsk" path="res://scenes/sceneAssets/decorum/portcullis.tscn" id="3_8xkky"]
+[ext_resource type="Script" uid="uid://cjsko1qdy2i85" path="res://scripts/systems/breakable.gd" id="3_ykn8s"]
+[ext_resource type="PackedScene" uid="uid://bfexqidi33qd" path="res://assets/decorum/barrel/barrel.glb" id="3_ynfht"]
+[ext_resource type="Script" uid="uid://kjagabf2yq2w" path="res://scripts/systems/forward_damage_call.gd" id="5_dp4yn"]
+[ext_resource type="Script" uid="uid://dqsnpnvggwf4v" path="res://scripts/debug.gd" id="5_j0mqc"]
+[ext_resource type="PackedScene" uid="uid://nb16qcj6ffbe" path="res://scenes/sceneAssets/torch.tscn" id="5_mrveh"]
+[ext_resource type="Script" uid="uid://6au8dh3bfs5w" path="res://scripts/systems/forward_damage_call_area3d.gd" id="6_3thhy"]
+[ext_resource type="PackedScene" uid="uid://befhmcwttk13d" path="res://scenes/sceneAssets/decorum/barrel_side.tscn" id="6_7yf6s"]
+[ext_resource type="PackedScene" uid="uid://dwfgsjduq44ra" path="res://scenes/sceneAssets/decorum/wicker_bottle.tscn" id="6_jd7hp"]
+[ext_resource type="VoxelGIData" uid="uid://blaujvcfxlxfk" path="res://resources/voxel_data/boss_1.VoxelGI_data.res" id="7_s2jjs"]
+[ext_resource type="Environment" uid="uid://b86r0ltec0j2d" path="res://resources/env/boss.tres" id="7_xjiro"]
+[ext_resource type="PackedScene" uid="uid://ip1fw6r67g3y" path="res://scenes/skeleton_glad.tscn" id="15_gxsot"]
+[ext_resource type="ArrayOccluder3D" uid="uid://b1ex7gagj683y" path="res://resources/occ/boss_1.occ" id="16_gxsot"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ynfht"]
+height = 1.2875977
+radius = 0.35107422
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ykn8s"]
+height = 1.0367432
+radius = 0.42822266
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8q6a3"]
+vertices = PackedVector3Array(-10.572069, 18.129644, -3.1134458, -10.572069, 18.129644, 31.386555, 26.42793, 18.129644, 31.386555, 26.42793, 18.129644, -3.1134458, -2.8220692, 0.37964416, 2.3865542, 0.42793083, 0.37964416, 2.3865542, 0.67793083, 0.37964416, -2.3634458, -9.572069, 0.37964416, 5.3865542, -3.8220692, 0.37964416, 5.3865542, -3.5720692, 0.37964416, 3.1365542, -9.572069, 0.37964416, -2.1134458, 1.9279308, 0.37964416, 2.3865542, 2.6779308, 0.37964416, 3.1365542, 14.177931, 0.37964416, 5.3865542, 14.427931, 0.37964416, 3.3865542, 14.177931, 0.37964416, -2.1134458, 2.6779308, 0.62964416, 5.6365542, 22.42793, 0.37964416, -0.61344576, 22.42793, 0.37964416, -1.8634458, 21.92793, 0.37964416, -2.3634458, 15.177931, 0.37964416, 2.3865542, 19.67793, 0.37964416, 2.3865542, 20.42793, 0.37964416, 3.1365542, 20.42793, 0.37964416, 5.8865542, 25.67793, 0.37964416, 6.1365542, 25.67793, 0.37964416, 0.13655424, 23.17793, 0.37964416, 0.13655424, -1.3220692, 0.37964416, 4.6365542, -1.3220692, 0.37964416, 5.8865542, 0.42793083, 0.37964416, 5.8865542, 0.42793083, 0.37964416, 4.6365542, 16.67793, 0.37964416, 4.6365542, 16.67793, 0.37964416, 5.8865542, 18.17793, 0.37964416, 5.8865542, 18.17793, 0.37964416, 4.6365542, -3.5720692, 0.37964416, 7.3865542, -9.822069, 0.37964416, 22.636555, -4.072069, 0.37964416, 22.636555, -3.8220692, 0.37964416, 20.386555, -2.8220692, 0.37964416, 8.136555, -3.0720692, 0.37964416, 19.636555, -0.57206917, 0.37964416, 19.636555, -0.57206917, 0.37964416, 8.386555, 17.67793, 0.37964416, 9.386555, 16.67793, 0.37964416, 8.386555, 15.427931, 0.37964416, 8.386555, 14.177931, 0.37964416, 20.386555, 14.927931, 0.62964416, 19.636555, 17.67793, 0.37964416, 19.636555, 2.4279308, 0.62964416, 20.386555, 2.4279308, 0.37964416, 21.636555, 14.177931, 0.37964416, 21.636555, 1.6779308, 0.62964416, 19.636555, 1.9279308, 0.37964416, 8.136555, 2.6779308, 0.62964416, 7.3865542, 14.427931, 0.37964416, 7.3865542, 20.17793, 0.37964416, 7.8865542, 19.67793, 0.37964416, 19.636555, 20.42793, 0.37964416, 20.636555, 25.67793, 0.37964416, 20.636555, 18.92793, 0.37964416, 9.136555, 20.92793, 0.37964416, 21.136555, 19.67793, 0.37964416, 25.636555, 16.17793, 0.37964416, 25.636555, 15.677931, 0.37964416, 30.386555, 20.42793, 0.37964416, 24.886555, 25.67793, 0.37964416, 30.386555, 14.927931, 0.62964416, 25.636555, 1.6779308, 0.37964416, 25.636555, 0.17793083, 0.37964416, 25.636555, 0.42793083, 0.37964416, 30.386555, 14.177931, 0.62964416, 24.886555, 2.4279308, 0.37964416, 24.886555, 13.677931, 0.37964416, 22.136555, -1.5720692, 0.37964416, 21.886555, -1.5720692, 0.37964416, 23.386555, 0.17793083, 0.37964416, 23.386555, 0.17793083, 0.37964416, 21.886555, 16.42793, 0.37964416, 21.886555, 16.42793, 0.37964416, 23.386555, 18.17793, 0.37964416, 23.386555, 18.17793, 0.37964416, 21.886555, -3.0720692, 0.37964416, 25.636555, -3.8220692, 0.37964416, 24.886555, -9.822069, 0.37964416, 30.136555)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(4, 9, 6), PackedInt32Array(6, 9, 10), PackedInt32Array(10, 9, 7), PackedInt32Array(11, 5, 6), PackedInt32Array(11, 6, 12), PackedInt32Array(12, 6, 15), PackedInt32Array(12, 15, 14), PackedInt32Array(12, 14, 13), PackedInt32Array(13, 16, 12), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 21), PackedInt32Array(19, 21, 20), PackedInt32Array(19, 20, 15), PackedInt32Array(20, 14, 15), PackedInt32Array(26, 25, 22), PackedInt32Array(22, 25, 23), PackedInt32Array(23, 25, 24), PackedInt32Array(22, 21, 26), PackedInt32Array(26, 21, 17), PackedInt32Array(30, 29, 27), PackedInt32Array(27, 29, 28), PackedInt32Array(34, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(7, 8, 35), PackedInt32Array(38, 37, 36), PackedInt32Array(35, 39, 7), PackedInt32Array(7, 39, 40), PackedInt32Array(7, 40, 38), PackedInt32Array(7, 38, 36), PackedInt32Array(42, 41, 39), PackedInt32Array(39, 41, 40), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 47), PackedInt32Array(45, 47, 46), PackedInt32Array(43, 48, 47), PackedInt32Array(46, 51, 49), PackedInt32Array(49, 51, 50), PackedInt32Array(52, 41, 42), PackedInt32Array(49, 52, 53), PackedInt32Array(53, 52, 42), PackedInt32Array(16, 13, 54), PackedInt32Array(54, 13, 55), PackedInt32Array(54, 55, 53), PackedInt32Array(53, 55, 45), PackedInt32Array(53, 45, 46), PackedInt32Array(53, 46, 49), PackedInt32Array(56, 23, 24), PackedInt32Array(58, 57, 59), PackedInt32Array(59, 57, 60), PackedInt32Array(59, 60, 56), PackedInt32Array(59, 56, 24), PackedInt32Array(43, 60, 48), PackedInt32Array(48, 60, 57), PackedInt32Array(61, 58, 59), PackedInt32Array(64, 63, 62), PackedInt32Array(61, 59, 65), PackedInt32Array(62, 65, 64), PackedInt32Array(64, 65, 66), PackedInt32Array(66, 65, 59), PackedInt32Array(67, 63, 64), PackedInt32Array(70, 69, 68), PackedInt32Array(67, 64, 71), PackedInt32Array(71, 64, 72), PackedInt32Array(72, 64, 68), PackedInt32Array(68, 64, 70), PackedInt32Array(50, 73, 72), PackedInt32Array(72, 73, 71), PackedInt32Array(50, 51, 73), PackedInt32Array(77, 76, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(81, 80, 78), PackedInt32Array(78, 80, 79), PackedInt32Array(82, 69, 70), PackedInt32Array(36, 37, 83), PackedInt32Array(82, 70, 83), PackedInt32Array(83, 70, 84), PackedInt32Array(83, 84, 36)]
+agent_height = 15.0
+agent_radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrveh"]
+size = Vector3(1.5360031, 4.183502, 2.9104328)
+
+[sub_resource type="Animation" id="Animation_s2jjs"]
+length = 0.001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chaos")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_intro_roar"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mrveh"]
+resource_name = "intro"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneCamera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 20.080284, 6.058836, 13.865581, 0.7, 1, 10.234994, 4.9772496, 11.069781, 2, 1, -4.7027626, 2.968589, 13.865581)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneCamera")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.84341484, 0, 0.53726286, 0.7, 1, 0, 0.9956056, 0, 0.093645796, 2, 1, 0, -0.70710677, 0, 0.70710677)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chaos")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.76666665),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_intro_roar"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2jjs"]
+_data = {
+&"RESET": SubResource("Animation_s2jjs"),
+&"intro": SubResource("Animation_mrveh")
+}
+
+[node name="Boss1" type="Node3D"]
+script = ExtResource("1_lwmw0")
+
+[node name="Barrel" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.3897858, 0, -6.65104)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel2" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.8180618, 0, -4.803132)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel2" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel2"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel2"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel2/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel3" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.7443123, 0, -6.419841)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel3" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel3"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel3"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel3/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel4" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.59321, 0, 16.072117)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel4" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel4"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel4"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel4/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel5" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.26651, 0, 24.498936)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel5" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel5"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel5"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel5/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel6" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.074834, 0, 23.00678)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel6" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel6"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel6"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel6/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel7" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.409101, 0, 24.399456)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel7" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel7"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel7"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel7/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel8" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.6800141, 0, 13.369413)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel8" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel8"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel8"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel8/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel9" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 17.240538, 0, 13.369413)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel9" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel9"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel9"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel9/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="Barrel10" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 13.6194, 0, 3.1478348)
+script = ExtResource("3_ykn8s")
+
+[node name="Sketchfab_Scene" parent="Barrel10" instance=ExtResource("3_ynfht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrel10"]
+script = ExtResource("5_dp4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+shape = SubResource("CylinderShape3D_ynfht")
+debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
+
+[node name="Hurtbox" type="Area3D" parent="Barrel10"]
+script = ExtResource("6_3thhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel10/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+shape = SubResource("CylinderShape3D_ykn8s")
+debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_8q6a3")
+
+[node name="WickerBottle" parent="NavigationRegion3D" instance=ExtResource("6_jd7hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.061832, 0.12684134, -3.0648327)
+
+[node name="BarrelSide" parent="NavigationRegion3D" instance=ExtResource("6_7yf6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.025826, 0.12684134, -2.0729632)
+
+[node name="boss-rooma" parent="NavigationRegion3D" instance=ExtResource("2_8q6a3")]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, -5.378769, 2.366795, 13.768859)
+
+[node name="ExitGate" type="Node3D" parent="."]
+
+[node name="Portcullis" parent="ExitGate" instance=ExtResource("3_8xkky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.62515, 0.12685552, 13.8614)
+
+[node name="Chaos" parent="." instance=ExtResource("3_8q6a3")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 8.265518, 1.0430974, 13.52073)
+
+[node name="Torch" parent="." instance=ExtResource("5_mrveh")]
+transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 26.740149, 2.3829546, 7.2604218)
+
+[node name="Torch2" parent="." instance=ExtResource("5_mrveh")]
+transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 26.740149, 2.3829546, 20.324877)
+
+[node name="Area3D" type="Area3D" parent="." groups=["room_exit"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0289073, 0, 0)
+script = ExtResource("5_j0mqc")
+metadata/goes_deeper = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.445255, 2.272589, 12.523044)
+shape = SubResource("BoxShape3D_mrveh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("7_xjiro")
+
+[node name="CutscenePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s2jjs")
+}
+
+[node name="CutsceneCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.7027626, 2.968589, 13.865581)
+
+[node name="VoxelGI" type="VoxelGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.852936, 8.544678, 11.701019)
+size = Vector3(49.944275, 37.089355, 49.492737)
+data = ExtResource("7_s2jjs")
+
+[node name="SkeletonGlad" parent="." instance=ExtResource("15_gxsot")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.572304, 1.0975968, -2.0403538)
+
+[node name="SkeletonGlad2" parent="." instance=ExtResource("15_gxsot")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.017515, 1.0975968, 25.406708)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("16_gxsot")

@@ -40,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 		_hit_this_swing.append(hit)
 		var dir: Vector3 = (enemy.global_position - global_position).normalized()
 		dir.y = 0.0
-		enemy.take_hit(damage, dir, knockback_force)
+		enemy.take_hit(damage + GameManager.get_effective_damage_bonus(), dir, knockback_force)
 					
 func _has_line_of_sight(target: Enemy) -> bool:
 	var space := get_world_3d().direct_space_state

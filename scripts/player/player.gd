@@ -67,8 +67,8 @@ var can_attack: bool = true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	max_hp = GameManager.player_max_hp
-	max_stamina = 100.0
+	max_hp = GameManager.get_effective_max_hp()
+	max_stamina = GameManager.get_effective_max_stamina()
 	sword.visible = true
 	if sword_mesh:
 		sword_mesh.visible = true
@@ -76,6 +76,7 @@ func _ready() -> void:
 		torch.visible = false
 	move_speed = GameManager.get_move_speed()
 	roll_cooldown = GameManager.get_roll_cooldown()
+	stamina_regen_rate = GameManager.get_effective_stamina_regen()
 	hp = GameManager.player_current_hp if GameManager.player_current_hp != -1 else max_hp
 	stamina = GameManager.player_current_stamina if GameManager.player_current_stamina != -1.0 else max_stamina
 func save_state() -> void:
@@ -114,7 +115,10 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("swap_weapon") and not is_rolling and not _is_menu_open():
 		_swap_equipment()
-
+	if Input.is_action_just_pressed("use_item_1") and not _is_menu_open():
+		_use_consumable("health_potion")
+	if Input.is_action_just_pressed("use_item_2") and not _is_menu_open():
+		_use_consumable("vigor_draught")
 	if Input.is_action_just_pressed("attack"):
 		_attack_buffer_timer = buffer_window
 	if Input.is_action_just_pressed("roll"):
@@ -379,6 +383,21 @@ func take_damage(amount: int, attack_direction: Vector3 = Vector3.ZERO, knockbac
 		
 	if hp <= 0:
 		_die()
+func heal(amount: int) -> void:
+	hp = min(hp + amount,max_hp)
+	var h := _get_hud()
+	if h:
+		h.heal(hp,max_hp)
+func restore_stamina(amount: float) -> void:
+	stamina = min(stamina + amount,max_stamina)
+func _use_consumable(id: String) -> void:
+	if not GameManager.use_consumable(id):
+		return
+	match id:
+		"health_potion":
+			heal(40)
+		"vigor_draught":
+			restore_stamina(40)
 func _tween_camera_hit(launch_dir: Vector3) -> void:
 	var hit_side = launch_dir.dot(global_basis.x)
 	var tilt = 0.08 if hit_side > 0 else -0.08

@@ -3,6 +3,7 @@ extends Node
 signal souls_changed(new_amount: int)
 signal shards_changed(new_amount: int)
 signal hp_changed(new_hp: int, max_hp: int)
+signal consumables_changed()
 var fade_in_on_load: bool = false
 var souls: int = 0
 var unlocked_upgrades: Array[String] = []
@@ -12,6 +13,8 @@ var shards: int = 0
 var current_depth: int = 1
 var player_max_hp: int = 100
 var player_damage_bonus: int = 0
+var consumables: Dictionary = {}
+var run_upgrades: Array[String] = []
 
 func _ready() -> void:
 	load_save()
@@ -40,11 +43,25 @@ func spend_shards(amount: int) -> bool:
 	shards_changed.emit(shards)
 	return true
 
+func add_consumable(id: String, amount: int = 1) -> void:
+	consumables[id] = consumables.get(id, 0) + amount
+	consumables_changed.emit()
+func use_consumable(id:String) -> bool:
+	if consumables.get(id, 0) <= 0:
+		return false
+	consumables[id] -= 1
+	consumables_changed.emit()
+	return true
+	
+func get_consumable_count(id: String) -> int:
+	return consumables.get(id, 0)
 func on_player_died() -> void:
 	shards = 0
 	current_depth = 1
 	player_current_hp = -1
 	player_current_stamina = -1.0
+	consumables.clear()
+	run_upgrades.clear()
 	shards_changed.emit(shards)
 	get_tree().change_scene_to_file("res://scenes/base.tscn")
 
@@ -53,6 +70,8 @@ func on_run_started() -> void:
 	current_depth = 1
 	player_current_hp = -1
 	player_current_stamina = -1.0
+	consumables.clear()
+	run_upgrades.clear()
 
 func save() -> void:
 	var data := {
@@ -62,6 +81,8 @@ func save() -> void:
 		"player_damage_bonus": player_damage_bonus,
 		"player_current_hp": player_current_hp,
 		"player_current_stamina": player_current_stamina,
+		"consumables": consumables,
+		"run_upgrades": run_upgrades,
 	}
 	var file := FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
@@ -80,6 +101,9 @@ func load_save() -> void:
 	player_damage_bonus = data.get("player_damage_bonus", 0)
 	player_current_hp = data.get("player_current_hp", -1)
 	player_current_stamina = data.get("player_current_stamina", -1.0)
+	consumables = data.get("consumables", {})
+	var raw_run: Array = data.get("run_upgrades", [])
+	run_upgrades = Array(raw_run, TYPE_STRING, "", null)
 func reset_save() -> void:
 	if FileAccess.file_exists("user://save.json"):
 		DirAccess.remove_absolute(OS.get_user_data_dir() + "/save.json")
@@ -90,6 +114,8 @@ func reset_save() -> void:
 	player_damage_bonus = 0
 	player_current_hp = -1
 	player_current_stamina = -1.0
+	consumables.clear()
+	run_upgrades.clear()
 func save_player_state(hp: int, stamina: float) -> void:
 	player_current_hp = hp
 	player_current_stamina = stamina
@@ -103,7 +129,8 @@ func apply_upgrade(id: String) -> void:
 			pass
 		"move_speed":
 			pass
-
+func apply_run_upgradae(id: String) -> void:
+	run_upgrades.append(id)
 func get_roll_cooldown() -> float:
 	var base := 0.9
 	var reduction := unlocked_upgrades.count("roll_cooldown") * 0.1
@@ -112,3 +139,11 @@ func get_roll_cooldown() -> float:
 func get_move_speed() -> float:
 	var base := 5.0
 	return base + unlocked_upgrades.count("move_speed") * 0.5
+func get_effective_max_hp() -> int:
+	return player_max_hp + run_upgrades.count("max_hp") * 20
+func get_effective_damage_bonus() -> int:
+	return player_damage_bonus + run_upgrades.count("damage") * 5
+func get_effective_max_stamina() -> float:
+	return 100 + run_upgrades.count("max_stamina") * 20
+func get_effective_stamina_regen() -> float:
+	return 20 + run_upgrades.count("stamina_regen") * 5

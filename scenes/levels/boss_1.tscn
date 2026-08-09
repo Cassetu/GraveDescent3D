@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://csmee2rljnf5m"]
+[gd_scene load_steps=23 format=3 uid="uid://csmee2rljnf5m"]
 
 [ext_resource type="Script" uid="uid://cx66tpcyvm7sw" path="res://scripts/systems/boss_room.gd" id="1_lwmw0"]
 [ext_resource type="PackedScene" uid="uid://cfgysvqllubg4" path="res://scenes/sceneAssets/rooms/boss_rooma_model.tscn" id="2_8q6a3"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://nb16qcj6ffbe" path="res://scenes/sceneAssets/torch.tscn" id="5_mrveh"]
 [ext_resource type="Script" uid="uid://6au8dh3bfs5w" path="res://scripts/systems/forward_damage_call_area3d.gd" id="6_3thhy"]
 [ext_resource type="PackedScene" uid="uid://befhmcwttk13d" path="res://scenes/sceneAssets/decorum/barrel_side.tscn" id="6_7yf6s"]
-[ext_resource type="PackedScene" uid="uid://dwfgsjduq44ra" path="res://scenes/sceneAssets/decorum/wicker_bottle.tscn" id="6_jd7hp"]
 [ext_resource type="VoxelGIData" uid="uid://blaujvcfxlxfk" path="res://resources/voxel_data/boss_1.VoxelGI_data.res" id="7_s2jjs"]
 [ext_resource type="Environment" uid="uid://b86r0ltec0j2d" path="res://resources/env/boss.tres" id="7_xjiro"]
 [ext_resource type="PackedScene" uid="uid://ip1fw6r67g3y" path="res://scenes/skeleton_glad.tscn" id="15_gxsot"]
@@ -325,8 +324,18 @@ debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8q6a3")
 
-[node name="WickerBottle" parent="NavigationRegion3D" instance=ExtResource("6_jd7hp")]
+[node name="WickerBottle" parent="NavigationRegion3D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.061832, 0.12684134, -3.0648327)
+script = null
 
 [node name="BarrelSide" parent="NavigationRegion3D" instance=ExtResource("6_7yf6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.025826, 0.12684134, -2.0729632)

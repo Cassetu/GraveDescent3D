@@ -148,6 +148,7 @@ material_override = SubResource("StandardMaterial3D_oqvpr")
 material_override = ExtResource("2_dndte")
 
 [node name="Cube_017" parent="." index="17"]
+transform = Transform3D(9.64001, 0, 0, 0, 0.35117024, 0, 0, 0, 9.086392, -1.8206275, 17.425953, 23.24408)
 material_override = ExtResource("2_dndte")
 
 [node name="Cube_018" parent="." index="18"]
@@ -276,74 +277,53 @@ transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1
 [node name="Torch10" parent="." index="30" instance=ExtResource("5_so1m4")]
 transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1.4, 24.283104, 4, 31.445938)
 
-[node name="Torch11" parent="." index="31" instance=ExtResource("5_so1m4")]
-transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1.4, 14.528303, 4, 31.445938)
-
-[node name="Torch12" parent="." index="32" instance=ExtResource("5_so1m4")]
-transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1.4, -1.2670293, 4, 31.445938)
-
-[node name="Torch13" parent="." index="33" instance=ExtResource("5_so1m4")]
+[node name="Torch13" parent="." index="31" instance=ExtResource("5_so1m4")]
 transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1.4, -9.26259, 4, 31.445938)
 
-[node name="Torch14" parent="." index="34" instance=ExtResource("5_so1m4")]
+[node name="Torch14" parent="." index="32" instance=ExtResource("5_so1m4")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 6.3699665, 4, -3.4060967)
 
-[node name="Torch15" parent="." index="35" instance=ExtResource("5_so1m4")]
+[node name="Torch15" parent="." index="33" instance=ExtResource("5_so1m4")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 24.283104, 4, -3.4060967)
 
-[node name="Torch16" parent="." index="36" instance=ExtResource("5_so1m4")]
+[node name="Torch16" parent="." index="34" instance=ExtResource("5_so1m4")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.528303, 4, -3.4060967)
 
-[node name="Torch17" parent="." index="37" instance=ExtResource("5_so1m4")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -1.2670293, 4, -3.4060967)
-
-[node name="Torch18" parent="." index="38" instance=ExtResource("5_so1m4")]
+[node name="Torch18" parent="." index="35" instance=ExtResource("5_so1m4")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -9.26259, 4, -3.4060967)
 
-[node name="Torch5" parent="." index="39" instance=ExtResource("5_so1m4")]
-transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, -2.3991778, 12.101734, 5.2823553)
-
-[node name="Torch6" parent="." index="40" instance=ExtResource("5_so1m4")]
-transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, -2.5609155, 12.101734, 22.533472)
-
-[node name="Torch7" parent="." index="41" instance=ExtResource("5_so1m4")]
-transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 15.484367, 12.101734, 5.2823553)
-
-[node name="Torch8" parent="." index="42" instance=ExtResource("5_so1m4")]
-transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 15.168886, 12.101734, 22.533472)
-
-[node name="Sketchfab_Scene" parent="." index="43" instance=ExtResource("6_dndte")]
+[node name="Sketchfab_Scene" parent="." index="36" instance=ExtResource("6_dndte")]
 transform = Transform3D(0.02, 0, 0, 0, 0.019891202, 0.0020832787, 0, -0.0020832787, 0.019891202, 16.546774, 0.108953595, 7.201645)
 
-[node name="Sketchfab_Scene2" parent="." index="44" instance=ExtResource("7_a6ci0")]
+[node name="Sketchfab_Scene2" parent="." index="37" instance=ExtResource("7_a6ci0")]
 transform = Transform3D(0.822948, 0, 0.5681167, 0, 1, 0, -0.5681167, 0, 0.822948, 18.173653, -1.5128441, 7.510837)
 
-[node name="Sketchfab_Scene3" parent="." index="45" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene3" parent="." index="38" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.44496343, 0, -0.89554876, 0, 1, 0, 0.89554876, 0, 0.44496343, 1.4776208, 0.20677927, 19.752613)
 
-[node name="Sketchfab_Scene4" parent="." index="46" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene4" parent="." index="39" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.7037668, 0, 0.71043104, 0, 1, 0, -0.71043104, 0, 0.7037668, 4.046603, 0.20677927, -2.4525442)
 
-[node name="Sketchfab_Scene5" parent="." index="47" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene5" parent="." index="40" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.8375376, 0, 0.54637975, 0, 1, 0, -0.54637975, 0, 0.8375376, 0.3909955, 0.20677927, 27.344967)
 
-[node name="Sketchfab_Scene6" parent="." index="48" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene6" parent="." index="41" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.68574214, 0, 0.7278446, 0, 1, 0, -0.7278446, 0, 0.68574214, 15.130733, 0.20677927, 19.579836)
 
-[node name="Sketchfab_Scene7" parent="." index="49" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene7" parent="." index="42" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.647056, 0, 0.7624425, 0, 1, 0, -0.7624425, 0, 0.647056, -9.866491, 0.20677927, 15.982848)
 
-[node name="Sketchfab_Scene8" parent="." index="50" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene8" parent="." index="43" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.49709514, 0, -0.86769605, 0, 1, 0, 0.86769605, 0, 0.49709514, 24.830688, 0.20678061, -1.8039484)
 
-[node name="Sketchfab_Scene9" parent="." index="51" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene9" parent="." index="44" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.42201713, 0, 0.90658784, 0, 1, 0, -0.90658784, 0, 0.42201713, 14.599811, 0.20677927, 25.298634)
 
-[node name="Sketchfab_Scene10" parent="." index="52" instance=ExtResource("9_m00vb")]
+[node name="Sketchfab_Scene10" parent="." index="45" instance=ExtResource("9_m00vb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.64096, 0.12770912, 21.758007)
 
-[node name="Sketchfab_Scene11" parent="." index="53" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene11" parent="." index="46" instance=ExtResource("5_bivs2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8813932, 0.20677927, 6.875543)
 
-[node name="Sketchfab_Scene12" parent="." index="54" instance=ExtResource("5_bivs2")]
+[node name="Sketchfab_Scene12" parent="." index="47" instance=ExtResource("5_bivs2")]
 transform = Transform3D(0.7746466, 0, -0.6323944, 0, 1, 0, 0.6323944, 0, 0.7746466, 25.895092, 0.20677927, 11.771809)

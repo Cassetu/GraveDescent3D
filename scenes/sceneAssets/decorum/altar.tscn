@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0m3l1h7njfa1"]
+
+[ext_resource type="PackedScene" uid="uid://r6505ccqoou1" path="res://assets/decorum/altar/phantom_in_seal_altar.glb" id="1_s06ej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s06ej"]
+size = Vector3(1.003418, 3, 4.4604797)
+
+[node name="Altar" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_s06ej")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1200287, 1.5, -0.0973053)
+shape = SubResource("BoxShape3D_s06ej")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2384353, 1.5, -0.0973053)
+shape = SubResource("BoxShape3D_s06ej")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25191605, 1.5, -1.8167541)
+shape = SubResource("BoxShape3D_s06ej")

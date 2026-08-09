@@ -1,1 +1,1 @@
-Play the game here: [https://cassetu.itch.io/dunmere]([url](https://cassetu.itch.io/dunmere))
+Play the game here: [https://cassetu.itch.io/dunmere](https://cassetu.itch.io/dunmere)

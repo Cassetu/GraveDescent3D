@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://fshcrx8vfsxi"]
+[gd_scene load_steps=11 format=3 uid="uid://fshcrx8vfsxi"]
 
 [ext_resource type="FontFile" uid="uid://dafh2mkgwjuj5" path="res://assets/font/CinzelDecorative-Bold.ttf" id="1_ekxnf"]
 [ext_resource type="Script" uid="uid://bwrn6pjhmbobn" path="res://scripts/systems/main_menu.gd" id="1_wu84c"]
 [ext_resource type="Script" uid="uid://boy2rv2w5xry1" path="res://scripts/systems/spin.gd" id="2_bqqt6"]
 [ext_resource type="FontFile" uid="uid://kh43dm252o17" path="res://assets/font/CinzelDecorative-Regular.ttf" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="4_room"]
+[ext_resource type="Environment" uid="uid://b2kytlsn0s6b7" path="res://resources/env/base.tres" id="5_env"]
+[ext_resource type="StyleBox" path="res://resources/theme/button_normal.tres" id="5_oa1go"]
+[ext_resource type="StyleBox" path="res://resources/theme/button_pressed.tres" id="6_jk1qb"]
+[ext_resource type="StyleBox" path="res://resources/theme/button_hover.tres" id="6_tbmy8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
 font = ExtResource("3_bqqt6")
@@ -12,13 +17,23 @@ font_size = 76
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_wu84c")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_env")
+
+[node name="RoomBackground" parent="." instance=ExtResource("4_room")]
+
+[node name="MenuCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.87054473, -0.04282066, 0.49022272, 0, 0.99620676, 0.08701807, -0.49208933, -0.075753115, 0.8672426, 2.809142, 2.0825305, 3.5287194)
+current = true
+fov = 55.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.039215688, 0.03137255, 0.023529412, 1)
+color = Color(0, 0, 0, 0.47500002)
 
 [node name="MenuBlock" type="VBoxContainer" parent="."]
 z_index = 2
@@ -44,6 +59,9 @@ theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
 theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("5_oa1go")
+theme_override_styles/pressed = ExtResource("6_jk1qb")
+theme_override_styles/hover = ExtResource("6_tbmy8")
 text = "NEW RUN"
 
 [node name="ContinueButton" type="Button" parent="MenuBlock"]
@@ -54,6 +72,9 @@ theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
 theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("5_oa1go")
+theme_override_styles/pressed = ExtResource("6_jk1qb")
+theme_override_styles/hover = ExtResource("6_tbmy8")
 text = "CONTINUE"
 
 [node name="QuitButton" type="Button" parent="MenuBlock"]
@@ -63,6 +84,9 @@ theme_override_colors/font_color = Color(0.47843137, 0.38039216, 0.27058825, 1)
 theme_override_colors/font_hover_color = Color(0.78431374, 0.72156864, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("5_oa1go")
+theme_override_styles/pressed = ExtResource("6_jk1qb")
+theme_override_styles/hover = ExtResource("6_tbmy8")
 text = "QUIT"
 
 [node name="TitleBlock" type="CenterContainer" parent="."]

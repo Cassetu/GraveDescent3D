@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://ct6gkphet3bv4" path="res://scripts/base/upgrade_altar.gd" id="3_h5ip5"]
 [ext_resource type="Texture2D" uid="uid://dm5u8ngix4pm3" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_2.webp" id="3_ycryd"]
 [ext_resource type="Script" uid="uid://ce3s48ag5dhln" path="res://scripts/base/dungeon_door.gd" id="4_40w10"]
-[ext_resource type="Texture2D" uid="uid://dif6u2dr5hrg" path="res://assets/decorum/lectuid="2_vciil"rn/haunted_mansion_seance_room_book_and_lectern_1.webp" id="4_ystrd"]
+[ext_resource type="Texture2D" uid="uid://dif6u2dr5hrg" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_1.webp" id="4_ystrd"]
 [ext_resource type="Texture2D" uid="uid://dc5q8yrttlfsx" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_3.webp" id="5_isyof"]
 [ext_resource type="Texture2D" uid="uid://dycjf5o81v8ca" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_5.webp" id="6_uo6h6"]
 [ext_resource type="Texture2D" uid="uid://5go2qohvsur7" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_4.webp" id="7_b085t"]

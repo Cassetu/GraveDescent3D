@@ -284,13 +284,13 @@ transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1
 transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1.4, -9.26259, 4, 31.445938)
 
 [node name="Torch14" parent="." index="32" instance=ExtResource("5_so1m4")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 6.3699665, 4, -3.4060967)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 3.8572087, 4, -3.4060967)
 
 [node name="Torch15" parent="." index="33" instance=ExtResource("5_so1m4")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 24.283104, 4, -3.4060967)
 
 [node name="Torch16" parent="." index="34" instance=ExtResource("5_so1m4")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.528303, 4, -3.4060967)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 12.933954, 4, -3.4060967)
 
 [node name="Torch18" parent="." index="35" instance=ExtResource("5_so1m4")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -9.26259, 4, -3.4060967)

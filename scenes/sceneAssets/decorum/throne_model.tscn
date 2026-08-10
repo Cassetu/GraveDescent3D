@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://boom4hpfqnoe0"]
+
+[ext_resource type="PackedScene" uid="uid://pkd5mx343ynw" path="res://assets/decorum/throne/satanic_lord_throne-optimized.glb" id="1_ccy5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ccy5h"]
+size = Vector3(2.0378113, 1.6005249, 1.8266296)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4btgo"]
+size = Vector3(0.29314423, 2.500946, 1.8266296)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tohqd"]
+size = Vector3(2.0378113, 7.16024, 0.7918625)
+
+[node name="throne_model" instance=ExtResource("1_ccy5h")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.015, 0, 0, 0, -6.556708e-10, 0.015, 0, -0.015, -6.556708e-10, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0063323975, 0.7840748, -0.0027618408)
+shape = SubResource("BoxShape3D_ccy5h")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93024826, 1.2342854, -0.0027618408)
+shape = SubResource("BoxShape3D_4btgo")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93920577, 1.2342854, -0.0027618408)
+shape = SubResource("BoxShape3D_4btgo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0063323975, 3.5874538, -0.9167595)
+shape = SubResource("BoxShape3D_tohqd")

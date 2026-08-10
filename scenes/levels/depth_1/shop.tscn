@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://qfffwrufdorn"]
+[gd_scene load_steps=28 format=4 uid="uid://qfffwrufdorn"]
 
 [ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="1_2dmpj"]
+[ext_resource type="Script" uid="uid://bqojr80ifm5ea" path="res://scripts/systems/dungeon_room.gd" id="1_8ws5y"]
 [ext_resource type="PackedScene" uid="uid://ddkqrxmcq4wpd" path="res://scenes/sceneAssets/decorum/barrel.tscn" id="2_fogte"]
 [ext_resource type="Script" uid="uid://no5xwun33ref" path="res://scripts/systems/ambient_dungeon.gd" id="2_gembu"]
 [ext_resource type="PackedScene" uid="uid://befhmcwttk13d" path="res://scenes/sceneAssets/decorum/barrel_side.tscn" id="3_8ws5y"]
@@ -126,6 +127,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_aomoi")
 
 [node name="Shop" type="Node3D"]
+script = ExtResource("1_8ws5y")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5dv4w")

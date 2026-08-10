@@ -7,7 +7,7 @@ func _ready() -> void:
 	for exit in find_children("*", "Area3D"):
 		if exit.is_in_group("room_exit"):
 			exit.body_entered.connect(func(body): _on_exit_entered(body, exit))
-			print("connected exit: ", exit.name)
+			print("connected exit: ", exit.name)s
 
 func _on_exit_entered(body: Node3D, exit: Node3D) -> void:
 	print("exit entered by: ", body.name)

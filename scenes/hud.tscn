@@ -236,33 +236,6 @@ theme_override_font_sizes/font_size = 16
 text = "2"
 horizontal_alignment = 1
 
-[node name="DamageEffectLayer" type="CanvasLayer" parent="."]
-script = ExtResource("2_oo0fn")
-
-[node name="BlurRect" type="ColorRect" parent="DamageEffectLayer"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_6fi6k")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0)
-metadata/_edit_lock_ = true
-
-[node name="Vignette" type="ColorRect" parent="DamageEffectLayer"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_uo2fv")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0)
-metadata/_edit_lock_ = true
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 20.0
 offset_top = 20.0
@@ -314,3 +287,30 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "%d  Shards"
+
+[node name="DamageEffectLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_oo0fn")
+
+[node name="BlurRect" type="ColorRect" parent="DamageEffectLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_6fi6k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Vignette" type="ColorRect" parent="DamageEffectLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_uo2fv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true

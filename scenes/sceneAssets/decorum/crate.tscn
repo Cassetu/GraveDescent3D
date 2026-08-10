@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3320to8a2yh"]
+[gd_scene load_steps=3 format=3 uid="uid://d3320to8a2yh"]
 
 [ext_resource type="PackedScene" uid="uid://c1xnda7mxq845" path="res://assets/decorum/crate/simple_short_crate_1.0.glb" id="1_qoq5n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qoq5n"]
+size = Vector3(0.90063477, 0.49786377, 0.61083984)
 
 [node name="Sketchfab_Scene" instance=ExtResource("1_qoq5n")]
 
 [node name="Sketchfab_model" parent="." index="0"]
 transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032592773, -0.0008239746, -0.016357422)
+shape = SubResource("BoxShape3D_qoq5n")

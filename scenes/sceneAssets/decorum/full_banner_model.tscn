@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://co0ivwlhyfcgu"]
+
+[ext_resource type="PackedScene" uid="uid://df7qohom7ewxd" path="res://assets/decorum/banner/banner-optimized.glb" id="1_nfp1k"]
+[ext_resource type="Texture2D" uid="uid://brdgkx3o2udn4" path="res://assets/decorum/banner/banner-optimized_0.webp" id="2_tfgp3"]
+[ext_resource type="Texture2D" uid="uid://ccn606e7gedr5" path="res://assets/decorum/banner/banner-optimized_1.webp" id="3_2qbjm"]
+[ext_resource type="Texture2D" uid="uid://dcr0m1y5y1evp" path="res://assets/decorum/banner/banner-optimized_2.webp" id="4_ltn5g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpv6k"]
+resource_name = "MAT_Banner"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_tfgp3")
+metallic_specular = 0.0
+metallic_texture = ExtResource("3_2qbjm")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_2qbjm")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_ltn5g")
+ao_enabled = true
+ao_texture = ExtResource("3_2qbjm")
+
+[node name="full_banner_model" instance=ExtResource("1_nfp1k")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, -0.011383653)
+
+[node name="tuch_Mesh" parent="Sketchfab_model/Collada visual scene group" index="0"]
+visible = false
+
+[node name="defaultMaterial" parent="Sketchfab_model/Collada visual scene group/tuch_Mesh" index="0"]
+visible = false
+
+[node name="pCube5" parent="Sketchfab_model/Collada visual scene group" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7602031)
+
+[node name="defaultMaterial2" parent="Sketchfab_model/Collada visual scene group/pCube5" index="0"]
+material_override = SubResource("StandardMaterial3D_hpv6k")
+
+[node name="pCylinder6" parent="Sketchfab_model/Collada visual scene group" index="2"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.042282045)
+visible = false
+
+[node name="pCylinder5" parent="Sketchfab_model/Collada visual scene group" index="3"]
+visible = false
+
+[node name="pCylinder4" parent="Sketchfab_model/Collada visual scene group" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.76)
+
+[node name="pCylinder3" parent="Sketchfab_model/Collada visual scene group" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.76)

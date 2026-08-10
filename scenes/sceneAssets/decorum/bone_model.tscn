@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg5hmyvk4auhh"]
+
+[ext_resource type="PackedScene" uid="uid://cvfw6c7vcbobr" path="res://assets/decorum/bone/humerus_with_injuries_-_1136478-optimized.glb" id="1_oo3v8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oo3v8"]
+radius = 1.8105469
+height = 34.57373
+
+[node name="bone_model" instance=ExtResource("1_oo3v8")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.83715826, 3.92741, -1.5633798)
+shape = SubResource("CapsuleShape3D_oo3v8")

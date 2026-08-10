@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc63eeku4w340"]
+
+[ext_resource type="PackedScene" uid="uid://df7qohom7ewxd" path="res://assets/decorum/banner/banner-optimized.glb" id="1_uuwej"]
+
+[node name="full_banner_model" instance=ExtResource("1_uuwej")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, -0.011383653)
+
+[node name="defaultMaterial" parent="Sketchfab_model/Collada visual scene group/tuch_Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8076366)
+
+[node name="pCube5" parent="Sketchfab_model/Collada visual scene group" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7602031)
+visible = false
+
+[node name="pCylinder6" parent="Sketchfab_model/Collada visual scene group" index="2"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.042282045)
+
+[node name="defaultMaterial4" parent="Sketchfab_model/Collada visual scene group/pCylinder5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.808)
+
+[node name="pCylinder4" parent="Sketchfab_model/Collada visual scene group" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.76)
+visible = false
+
+[node name="pCylinder3" parent="Sketchfab_model/Collada visual scene group" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.76)

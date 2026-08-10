@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8e5x62e18rsk"]
+
+[ext_resource type="PackedScene" uid="uid://cldmjwsormjim" path="res://assets/decorum/table_chair/wooden_table_and_chair.glb" id="1_h2dpx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2dpx"]
+size = Vector3(1, 0.72161865, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bypem"]
+size = Vector3(0.14648438, 2.302246, 1)
+
+[node name="chair_model" instance=ExtResource("1_h2dpx")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.018, 0, 0, 0, -7.8680495e-10, 0.018, 0, -0.018, -7.8680495e-10, 0, -0.18946153, 0)
+
+[node name="Table_U4" parent="Sketchfab_model/c624503c29284868af00684f7fe3de68_fbx/RootNode" index="0"]
+visible = false
+
+[node name="Chair_U4" parent="Sketchfab_model/c624503c29284868af00684f7fe3de68_fbx/RootNode" index="1"]
+transform = Transform3D(99.999985, 0, 0, 0, -1.6292066e-05, 99.999985, 0, -99.999985, -1.6292066e-05, -0.74201816, 12.167, -0.007116014)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43685913, 0)
+shape = SubResource("BoxShape3D_h2dpx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4267578, 1.1944275, 0)
+shape = SubResource("BoxShape3D_bypem")

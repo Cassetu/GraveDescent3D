@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://c1xlthly5ctoc"]
+[gd_scene load_steps=52 format=4 uid="uid://c1xlthly5ctoc"]
 
 [ext_resource type="Script" uid="uid://cyih036pwo1ap" path="res://scripts/base.gd" id="1_33mrd"]
 [ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="1_aomoi"]
@@ -26,7 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://befhmcwttk13d" path="res://scenes/sceneAssets/decorum/barrel_side.tscn" id="26_03t26"]
 [ext_resource type="VoxelGIData" uid="uid://dgqvp2c3ahqto" path="res://resources/voxel_data/base.VoxelGI_data.res" id="27_03t26"]
 [ext_resource type="Environment" uid="uid://b2kytlsn0s6b7" path="res://resources/env/base.tres" id="27_ntevj"]
+[ext_resource type="PackedScene" uid="uid://d3320to8a2yh" path="res://scenes/sceneAssets/decorum/crate.tscn" id="28_ntevj"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b227oi0uwp2fq" path="res://resources/occ/base.occ" id="29_c8kgi"]
+[ext_resource type="PackedScene" uid="uid://dqocbw20vbxh0" path="res://scenes/sceneAssets/decorum/coins_model.tscn" id="29_pmwj3"]
+[ext_resource type="PackedScene" uid="uid://co0ivwlhyfcgu" path="res://scenes/sceneAssets/decorum/full_banner_model.tscn" id="30_82vju"]
+[ext_resource type="Texture2D" uid="uid://b2djdipujjtfi" path="res://assets/textures/dirt.png" id="31_vs80n"]
+[ext_resource type="Texture2D" uid="uid://dmp58niylbbku" path="res://assets/textures/dirt-normal.png" id="32_s6kkj"]
+[ext_resource type="Texture2D" uid="uid://b0awb4uytj5t4" path="res://assets/textures/blood.png" id="33_s6kkj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvnym"]
 resource_name = "Book_Sides"
@@ -300,7 +306,7 @@ script = ExtResource("1_33mrd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.3934517)
 
 [node name="UpgradeAltar" type="Node3D" parent="."]
-transform = Transform3D(-4.3619735e-08, 0.064723894, 0.9979032, 2.8291713e-09, 0.9979032, -0.064723894, -1, 0, -4.371139e-08, 6.5331936, -0.3664416, 0)
+transform = Transform3D(-1, -5.641594e-09, -8.724056e-08, 0, 0.9979156, -0.06453231, 8.742278e-08, -0.06453231, -0.9979156, -1.7910074, -0.3664416, -5.6921735)
 script = ExtResource("3_h5ip5")
 
 [node name="Mesh" type="MeshInstance3D" parent="UpgradeAltar"]
@@ -350,7 +356,7 @@ mesh = SubResource("ArrayMesh_ktrk3")
 skeleton = NodePath("")
 
 [node name="Player" parent="." instance=ExtResource("2_t45w4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9963651, 2.2348247, 3.797378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9963651, 1.2588525, 3.797378)
 
 [node name="UpgradeMenu" parent="." groups=["upgrade_menu"] instance=ExtResource("20_uo6h6")]
 
@@ -384,3 +390,30 @@ data = ExtResource("27_03t26")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("29_c8kgi")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("28_ntevj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.692282, 0.39652127, -8.330765)
+
+[node name="coins_model" parent="." instance=ExtResource("29_pmwj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.12720625, -8)
+
+[node name="full_banner_model" parent="." instance=ExtResource("30_82vju")]
+transform = Transform3D(3.577464e-08, 0, -3, 0, 3, 0, 3, 0, 3.577464e-08, 2.9474516, 1.6274006, -8.610226)
+
+[node name="Barrel3" parent="." instance=ExtResource("23_aomoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.908118, 0.37562063, -7.665321)
+
+[node name="Sack2" parent="." instance=ExtResource("24_ktrk3")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 3.1446416, 0.118153974, -8.227421)
+
+[node name="DirtDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4962008, 0.12580341, 3.3389485)
+size = Vector3(1.4440918, 0.22225952, 2.447937)
+texture_albedo = ExtResource("31_vs80n")
+texture_normal = ExtResource("32_s6kkj")
+
+[node name="BloodDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7940624, 0.12580341, -3.888378)
+size = Vector3(1.4440918, 0.22225952, 1.5740662)
+texture_albedo = ExtResource("33_s6kkj")
+modulate = Color(0.65012825, 0.6501283, 0.65012825, 0.41568628)

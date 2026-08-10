@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqocbw20vbxh0"]
+
+[ext_resource type="PackedScene" uid="uid://de4qxkv133hln" path="res://assets/decorum/coins/roman_coins-optimized.glb" id="1_32kvx"]
+
+[node name="coins_model" instance=ExtResource("1_32kvx")]

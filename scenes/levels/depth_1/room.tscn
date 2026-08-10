@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsnbibp2baytv"]
+[gd_scene load_steps=21 format=3 uid="uid://bsnbibp2baytv"]
 
 [ext_resource type="Script" uid="uid://bqojr80ifm5ea" path="res://scripts/systems/dungeon_room.gd" id="1_0t6jy"]
 [ext_resource type="Script" uid="uid://dqsnpnvggwf4v" path="res://scripts/debug.gd" id="2_m6jgq"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bwecqjrffauao" path="res://assets/audio/ambient/rumble.mp3" id="10_tvyi6"]
 [ext_resource type="AudioStream" uid="uid://dmgqx5cslkym7" path="res://assets/audio/ambient/rumble2.mp3" id="11_cqdfs"]
 [ext_resource type="ArrayOccluder3D" uid="uid://cyfmkr2euo5ui" path="res://resources/occ/room.occ" id="12_cqdfs"]
+[ext_resource type="PackedScene" uid="uid://dpht47jmwcspj" path="res://scenes/sceneAssets/decorum/rug_model.tscn" id="15_en8ba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co6ej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -107,3 +108,6 @@ ambient_sounds = Array[AudioStream]([ExtResource("10_tvyi6"), ExtResource("11_cq
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("12_cqdfs")
+
+[node name="rug_model" parent="." instance=ExtResource("15_en8ba")]
+transform = Transform3D(0.03967835, 0, -0.99921244, 0, 1, 0, 0.99921244, 0, 0.03967835, -1.7834939, 0.1099506, 10.065019)

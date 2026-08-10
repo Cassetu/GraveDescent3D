@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpht47jmwcspj"]
+
+[ext_resource type="PackedScene" uid="uid://qw1i3kbfe50f" path="res://assets/decorum/ruhg/simple_rug-optimized.glb" id="1_l7qp3"]
+[ext_resource type="Texture2D" uid="uid://bv8tdhh48pkkr" path="res://assets/decorum/ruhg/simple_rug-optimized_0.webp" id="2_gc66j"]
+[ext_resource type="Texture2D" uid="uid://b630hsepeldjj" path="res://assets/decorum/ruhg/simple_rug-optimized_1.webp" id="3_47c8p"]
+[ext_resource type="Texture2D" uid="uid://bcv4awxjwydty" path="res://assets/decorum/ruhg/simple_rug-optimized_2.webp" id="4_4oxfy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nporw"]
+resource_name = "RugBaseMaterial"
+cull_mode = 2
+albedo_color = Color(0.82665706, 0.82665706, 0.82665706, 1)
+albedo_texture = ExtResource("2_gc66j")
+metallic_specular = 0.0
+metallic_texture = ExtResource("3_47c8p")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_47c8p")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 1.23
+normal_texture = ExtResource("4_4oxfy")
+ao_enabled = true
+ao_texture = ExtResource("3_47c8p")
+
+[node name="rug_model" instance=ExtResource("1_l7qp3")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, 0.4, 0, -0.4, -1.7484556e-08, 0, 0.0008210242, 0)
+
+[node name="defaultMaterial" parent="Sketchfab_model/Collada visual scene group/Rug" index="0"]
+transform = Transform3D(0.77670646, 0, 0.6298628, 0, 1, 0, -0.6298628, 0, 0.77670646, 0, 0, 0.005017996)
+material_override = SubResource("StandardMaterial3D_nporw")

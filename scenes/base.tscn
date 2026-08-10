@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c1xlthly5ctoc"]
+[gd_scene load_steps=53 format=4 uid="uid://c1xlthly5ctoc"]
 
 [ext_resource type="Script" uid="uid://cyih036pwo1ap" path="res://scripts/base.gd" id="1_33mrd"]
 [ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="1_aomoi"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://b2djdipujjtfi" path="res://assets/textures/dirt.png" id="31_vs80n"]
 [ext_resource type="Texture2D" uid="uid://dmp58niylbbku" path="res://assets/textures/dirt-normal.png" id="32_s6kkj"]
 [ext_resource type="Texture2D" uid="uid://b0awb4uytj5t4" path="res://assets/textures/blood.png" id="33_s6kkj"]
+[ext_resource type="PackedScene" uid="uid://dpht47jmwcspj" path="res://scenes/sceneAssets/decorum/rug_model.tscn" id="34_rtpsq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvnym"]
 resource_name = "Book_Sides"
@@ -417,3 +418,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7940624, 0.12580341, -3.888
 size = Vector3(1.4440918, 0.22225952, 1.5740662)
 texture_albedo = ExtResource("33_s6kkj")
 modulate = Color(0.65012825, 0.6501283, 0.65012825, 0.41568628)
+
+[node name="rug_model" parent="." instance=ExtResource("34_rtpsq")]
+transform = Transform3D(-0.6036116, 0, 0.7972785, 0, 1, 0, -0.7972785, 0, -0.6036116, 2.3068628, 0.1099506, -5.1424565)

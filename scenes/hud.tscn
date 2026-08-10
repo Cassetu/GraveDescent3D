@@ -7,7 +7,7 @@
 [ext_resource type="Shader" uid="uid://dha5wqfijovfk" path="res://resources/shaders/vignette.gdshader" id="4_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://8jq6rwonut7r" path="res://assets/textures/icon/soul.png" id="6_047uy"]
 [ext_resource type="Texture2D" uid="uid://cpk0nw2u33agf" path="res://assets/textures/ui/black.png" id="7_0i1j5"]
-[ext_resource type="Texture2D" uid="uid://b2ajralcvbyeq" path="res://assets/textures/icon/ice.png" id="8_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://b2ajralcvbyeq" path="res://assets/icons/ice.png" id="8_hd3ao"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hd3ao"]
 texture = ExtResource("7_0i1j5")

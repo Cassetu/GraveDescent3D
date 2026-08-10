@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://d1c43oaxm3b47"]
+[gd_scene load_steps=39 format=4 uid="uid://d1c43oaxm3b47"]
 
 [ext_resource type="PackedScene" uid="uid://dproyaou4ugap" path="res://assets/rooms/dungeon-a-b/dungeontest-B.glb" id="1_xoii3"]
 [ext_resource type="Material" uid="uid://bkeg3u3ra6sqh" path="res://resources/materials/floor.tres" id="2_doqbe"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nb16qcj6ffbe" path="res://scenes/sceneAssets/torch.tscn" id="6_670gt"]
 [ext_resource type="Texture2D" uid="uid://dix5y1s0rm3m" path="res://assets/decorum/door/medieval_door_1.png" id="7_f5xj4"]
 [ext_resource type="Texture2D" uid="uid://nxpt2bh3r2h" path="res://assets/decorum/door/medieval_door_2.png" id="8_vi27i"]
+[ext_resource type="PackedScene" uid="uid://d3320to8a2yh" path="res://scenes/sceneAssets/decorum/crate.tscn" id="10_53oac"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rkyr"]
 albedo_texture = ExtResource("3_670gt")
@@ -285,13 +286,16 @@ material_override = ExtResource("2_doqbe")
 [node name="Torch" parent="." index="18" instance=ExtResource("6_670gt")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 2.591369, 1.8124573, 9.215953)
 
-[node name="Torch2" parent="." index="19" instance=ExtResource("6_670gt")]
+[node name="Torch4" parent="." index="19" instance=ExtResource("6_670gt")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -4.9134455, 1.8124573, 4.657722)
+
+[node name="Torch2" parent="." index="20" instance=ExtResource("6_670gt")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -4.674399, 1.8124573, 12.959546)
 
-[node name="Torch3" parent="." index="20" instance=ExtResource("6_670gt")]
+[node name="Torch3" parent="." index="21" instance=ExtResource("6_670gt")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -4.674399, 1.8124573, 26.339722)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="21"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="22"]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(9.64001, 0, 0, 0, 0.35117024, 0, 0, 0, 9.086392, -1.8185351, -0.2243289, 5.0822697)
@@ -356,3 +360,6 @@ shape = SubResource("ConcavePolygonShape3D_jcjvw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="15"]
 transform = Transform3D(9.64001, 0, 0, 0, 0.35117024, 0, 0, 0, 9.086392, -1.944973, 4.206339, 22.552664)
 shape = SubResource("ConcavePolygonShape3D_dj320")
+
+[node name="Sketchfab_Scene" parent="." index="23" instance=ExtResource("10_53oac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.629898, 0.39652133, 13.464781)

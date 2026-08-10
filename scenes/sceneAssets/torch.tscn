@@ -64,8 +64,11 @@ shadow_enabled = true
 shadow_blur = 1.5
 distance_fade_enabled = true
 omni_range = 16.0
-omni_attenuation = 0.8
+omni_attenuation = 1.4
 script = ExtResource("2_st6bl")
+base_energy = 4.0
+flicker_amount = 0.8
+flicker_speed = 2.6
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32762125, 0.11591971)

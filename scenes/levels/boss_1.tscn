@@ -99,18 +99,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654152, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -122,18 +124,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel2/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel2/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541519, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -145,18 +149,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel3/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel3/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654152, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -168,18 +174,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel4/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel4/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel4/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541538, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -191,18 +199,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel5/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel5/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel5/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541538, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -214,18 +224,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel6/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel6/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel6/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541538, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -237,18 +249,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel7/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel7/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel7/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654152, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -260,18 +274,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel8/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel8/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel8/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541519, 0.639, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -283,18 +299,20 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel9/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel9/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel9/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541538, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
@@ -306,36 +324,25 @@ script = ExtResource("3_ykn8s")
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 9.49765, -0.1098485, 1.9310784)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Barrel10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("5_dp4yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel10/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.48284912, 2.8775263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48284912, 0.1463337)
 shape = SubResource("CylinderShape3D_ynfht")
 debug_color = Color(0.31017157, 0.44721985, 1, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="Barrel10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.8)
 script = ExtResource("6_3thhy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel10/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5231743, 0.63934326, 2.8775263)
+[node name="HurtBoxCollision" type="CollisionShape3D" parent="Barrel10/Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06541538, 0.63934326, 0.119589806)
 shape = SubResource("CylinderShape3D_ykn8s")
 debug_color = Color(0.76933956, 0.3844597, 0.5955016, 0.41960785)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8q6a3")
-
-[node name="WickerBottle" parent="NavigationRegion3D"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.061832, 0.12684134, -3.0648327)
-script = null
 
 [node name="BarrelSide" parent="NavigationRegion3D" instance=ExtResource("6_7yf6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.025826, 0.12684134, -2.0729632)
@@ -364,7 +371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0289073, 0, 0)
 script = ExtResource("5_j0mqc")
 metadata/goes_deeper = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="Other" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.445255, 2.272589, 12.523044)
 shape = SubResource("BoxShape3D_mrveh")
 

@@ -12,7 +12,11 @@ func _destroy_prop() -> void:
 	if fragments:
 		var fx := fragments.instantiate()
 		get_parent().add_child(fx)
-		fx.global_position = global_position
+		var hurtbox = get_node_or_null("Hurtbox")
+		if hurtbox:
+			fx.global_position = hurtbox.global_position
+		else:
+			fx.global_position = global_position
 		if fx.has_method("restart"):
 			fx.restart()
 			

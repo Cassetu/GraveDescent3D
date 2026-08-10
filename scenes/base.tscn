@@ -1,21 +1,21 @@
-[gd_scene load_steps=47 format=4 uid="uid://c1xlthly5ctoc"]
+[gd_scene load_steps=46 format=4 uid="uid://c1xlthly5ctoc"]
 
 [ext_resource type="Script" uid="uid://cyih036pwo1ap" path="res://scripts/base.gd" id="1_33mrd"]
 [ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="1_aomoi"]
 [ext_resource type="PackedScene" uid="uid://ckr7l0g3uttdd" path="res://scenes/player.tscn" id="2_t45w4"]
-[ext_resource type="Texture2D" uid="uid://bq1qe88mwkb73" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_0.webp" id="2_vciil"]
+[ext_resource type="Texture2D" uid="uid://cdt1i4dpc5psv" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_0.webp" id="2_vciil"]
 [ext_resource type="Script" uid="uid://ct6gkphet3bv4" path="res://scripts/base/upgrade_altar.gd" id="3_h5ip5"]
-[ext_resource type="Texture2D" uid="uid://dm5u8ngix4pm3" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_2.webp" id="3_ycryd"]
+[ext_resource type="Texture2D" uid="uid://bwxou25sr06cj" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_2.webp" id="3_ycryd"]
 [ext_resource type="Script" uid="uid://ce3s48ag5dhln" path="res://scripts/base/dungeon_door.gd" id="4_40w10"]
-[ext_resource type="Texture2D" uid="uid://dif6u2dr5hrg" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_1.webp" id="4_ystrd"]
-[ext_resource type="Texture2D" uid="uid://dc5q8yrttlfsx" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_3.webp" id="5_isyof"]
-[ext_resource type="Texture2D" uid="uid://dycjf5o81v8ca" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_5.webp" id="6_uo6h6"]
-[ext_resource type="Texture2D" uid="uid://5go2qohvsur7" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_4.webp" id="7_b085t"]
-[ext_resource type="Texture2D" uid="uid://cdn3c4ux3k3t2" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_6.webp" id="8_33mrd"]
-[ext_resource type="Texture2D" uid="uid://c4rm5n586bfq" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_7.webp" id="10_ktrk3"]
-[ext_resource type="Texture2D" uid="uid://b8kska5llw5ns" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_8.webp" id="11_s5nuq"]
-[ext_resource type="Texture2D" uid="uid://bgdywls33yanm" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_10.webp" id="12_lefm6"]
-[ext_resource type="Texture2D" uid="uid://87kaqagpfpsn" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_9.webp" id="13_03t26"]
+[ext_resource type="Texture2D" uid="uid://cgxgh5adx8bon" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_1.webp" id="4_ystrd"]
+[ext_resource type="Texture2D" uid="uid://bc171esq155oo" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_3.webp" id="5_isyof"]
+[ext_resource type="Texture2D" uid="uid://b84r16nh1uakk" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_5.webp" id="6_uo6h6"]
+[ext_resource type="Texture2D" uid="uid://b07qh05dkbwlv" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_4.webp" id="7_b085t"]
+[ext_resource type="Texture2D" uid="uid://bxja0mb148i3g" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_6.webp" id="8_33mrd"]
+[ext_resource type="Texture2D" uid="uid://0fj4vcccev4a" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_7.webp" id="10_ktrk3"]
+[ext_resource type="Texture2D" uid="uid://b8icba62mci6x" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_8.webp" id="11_s5nuq"]
+[ext_resource type="Texture2D" uid="uid://cr36dkfoce4vl" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_10.webp" id="12_lefm6"]
+[ext_resource type="Texture2D" uid="uid://c1pta1s55kr53" path="res://assets/decorum/lecturn/haunted_mansion_seance_room_book_and_lectern_9.webp" id="13_03t26"]
 [ext_resource type="Texture2D" uid="uid://dfq3icun001ja" path="res://assets/decorum/door/medieval_door_0.jpg" id="16_isyof"]
 [ext_resource type="Texture2D" uid="uid://dix5y1s0rm3m" path="res://assets/decorum/door/medieval_door_1.png" id="17_uo6h6"]
 [ext_resource type="Texture2D" uid="uid://nxpt2bh3r2h" path="res://assets/decorum/door/medieval_door_2.png" id="18_b085t"]
@@ -350,7 +350,7 @@ mesh = SubResource("ArrayMesh_ktrk3")
 skeleton = NodePath("")
 
 [node name="Player" parent="." instance=ExtResource("2_t45w4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9963651, 1.233912, 3.797378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9963651, 2.2348247, 3.797378)
 
 [node name="UpgradeMenu" parent="." groups=["upgrade_menu"] instance=ExtResource("20_uo6h6")]
 

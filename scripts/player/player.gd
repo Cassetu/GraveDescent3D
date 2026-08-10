@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var mouse_sensitivity: float = 0.002
 @export var roll_speed: float = 10.0
 @export var roll_duration: float = 0.35
+@export var roll_iframe_duration: float = 0.08
 @export var roll_cooldown: float = 0.9
 @export var gravity: float = 20.0
 @export var max_hp: int = 100
@@ -62,6 +63,7 @@ var is_rolling: bool = false
 var roll_timer: float = 0.0
 var roll_direction: Vector3 = Vector3.ZERO
 var roll_cooldown_timer: float = 0.0
+var roll_iframe_timer: float = 0.0
 var is_blocking: bool = false
 var can_attack: bool = true
 
@@ -263,6 +265,8 @@ func _physics_process(delta: float) -> void:
 
 	if roll_cooldown_timer > 0.0:
 		roll_cooldown_timer -= delta
+	if roll_iframe_timer > 0.0:
+		roll_iframe_timer -= delta
 
 	move_and_slide()
 func _handle_move(delta: float) -> void:
@@ -298,6 +302,7 @@ func _start_roll(direction: Vector3) -> void:
 	is_rolling = true
 	roll_timer = roll_duration
 	roll_cooldown_timer = roll_cooldown
+	roll_iframe_timer = roll_iframe_duration
 	roll_direction = direction
 	_tween_camera_roll(direction)
 func _tween_camera_roll(direction: Vector3) -> void:
@@ -350,7 +355,8 @@ func _swing() -> void:
 	sword_anim.play("RESET")
 	can_attack = true
 func take_damage(amount: int, attack_direction: Vector3 = Vector3.ZERO, knockback_force: float = 7.0, stun_duration: float = 0.25) -> void:
-	if is_rolling:
+	if roll_iframe_timer > 0.0:
+		_play_impact_juice()
 		return
 	
 	if is_blocking and _is_in_front(attack_direction):
@@ -400,6 +406,18 @@ func _use_consumable(id: String) -> void:
 			heal(40)
 		"vigor_draught":
 			restore_stamina(40)
+func _play_impact_juice() -> void:
+	var base_fov := camera.fov
+	var fov_tween := create_tween()
+	fov_tween.set_ignore_time_scale(true)
+	fov_tween.tween_property(camera, "fov", base_fov + 10.0, 0.04).set_trans(Tween.TRANS_SINE)
+	fov_tween.tween_property(camera, "fov", base_fov, 0.3).set_ease(Tween.EASE_OUT)
+
+	Engine.time_scale = 0.25
+	var slow_tween := create_tween()
+	slow_tween.set_ignore_time_scale(true)
+	slow_tween.tween_interval(0.08)
+	slow_tween.tween_callback(func(): Engine.time_scale = 1.0)
 func _tween_camera_hit(launch_dir: Vector3) -> void:
 	var hit_side = launch_dir.dot(global_basis.x)
 	var tilt = 0.08 if hit_side > 0 else -0.08

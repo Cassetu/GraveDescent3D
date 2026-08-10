@@ -59,19 +59,15 @@ func _ready() -> void:
 	hp = max_hp
 	await get_tree().process_frame
 	_player = get_tree().get_first_node_in_group("player") as Player
-	print("[CHAOS] player found: ", _player != null)
 	anim_controller = _find_anim_controller(self)
-	print("[CHAOS] anim_controller found: ", anim_controller != null)
 	if anim_controller:
 		anim_controller.idle()
-		print("[CHAOS] playing idle")
 	add_child(music_player)
 	music_player.stream = load("res://assets/audio/music/boss_1/phase_1.mp3")
 	music_player.volume_db = -17
 	#music_player.bus = "Music"
 	if music_player.stream:
 		music_player.play()
-		print("[CHAOS] Boss music started looping")
 
 func _process_state(delta: float) -> void:
 	if is_in_cutscene:

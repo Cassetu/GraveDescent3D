@@ -3,6 +3,9 @@ extends Node3D
 
 @export var damage: int = 15
 @export var knockback_force: float = 7.0
+@export var point_blank_range: float = 0.9
+@export var max_reach: float = 1.8
+@export var point_blank_multiplier: float = 1.35
 
 @onready var shape_cast: ShapeCast3D = $ShapeCast3D
 
@@ -38,9 +41,17 @@ func _physics_process(_delta: float) -> void:
 		if dot < 0.0:
 			continue
 		_hit_this_swing.append(hit)
-		var dir: Vector3 = (enemy.global_position - global_position).normalized()
-		dir.y = 0.0
-		enemy.take_hit(damage + GameManager.get_effective_damage_bonus(), dir, knockback_force)
+		var dist := to_enemy.length()
+		var point_blank_t: float = 1.0 - clamp((dist - point_blank_range) / max(max_reach - point_blank_range, 0.01), 0.0, 1.0)
+		var distance_multiplier: float = lerp(1.0, point_blank_multiplier, point_blank_t)
+		var base_damage := damage + GameManager.get_effective_damage_bonus()
+		var final_damage := int(round(base_damage * distance_multiplier))
+		var dir: Vector3 = to_enemy.normalized()
+		enemy.take_hit(final_damage, dir, knockback_force)
+		if point_blank_t >= 1.0:
+			var player := owner as Player
+			if player:
+				player._play_impact_juice()
 					
 func _has_line_of_sight(target: Enemy) -> bool:
 	var space := get_world_3d().direct_space_state

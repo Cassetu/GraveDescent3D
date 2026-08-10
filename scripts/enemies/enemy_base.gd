@@ -106,7 +106,7 @@ func _tick_chase(delta: float) -> void:
 		state = State.ATTACK
 		return
 
-	nav_agent.target_position = _player.global_position
+	nav_agent.target_position = _get_flank_target()
 	var next := nav_agent.get_next_path_position()
 	var dir := (next - global_position)
 	dir.y = 0.0
@@ -124,7 +124,20 @@ func _tick_chase(delta: float) -> void:
 		dir = (dir.normalized() + separation * 2.5).normalized()
 		velocity.x = dir.x * move_speed
 		velocity.z = dir.z * move_speed
+func _get_flank_target() -> Vector3:
+	var squad: Array = []
+	for n in get_tree().get_nodes_in_group("enemy"):
+		if is_instance_valid(n) and (n.state == State.CHASE or n.state == State.ATTACK):
+			squad.append(n)
+	squad.sort_custom(func(a, b): return a.get_instance_id() < b.get_instance_id())
 
+	var slot := squad.find(self)
+	if slot == -1 or squad.size()<= 1:
+		return _player.global_position
+
+	var angle := (TAU / squad.size()) * slot
+	var offset := Vector3(cos(angle), 0.0, sin(angle)) * (attack_range *0.9)
+	return _player.global_position + offset
 func _tick_attack(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, 0.0, 15.0 * delta)
 	velocity.z = move_toward(velocity.z, 0.0, 15.0 * delta)

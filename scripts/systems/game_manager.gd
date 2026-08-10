@@ -62,6 +62,7 @@ func on_player_died() -> void:
 	player_current_stamina = -1.0
 	consumables.clear()
 	run_upgrades.clear()
+	save()
 	shards_changed.emit(shards)
 	get_tree().change_scene_to_file("res://scenes/base.tscn")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://qfffwrufdorn"]
+[gd_scene load_steps=29 format=4 uid="uid://qfffwrufdorn"]
 
 [ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="1_2dmpj"]
 [ext_resource type="Script" uid="uid://bqojr80ifm5ea" path="res://scripts/systems/dungeon_room.gd" id="1_8ws5y"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dfq3icun001ja" path="res://assets/decorum/door/medieval_door_0.jpg" id="8_woeaf"]
 [ext_resource type="Texture2D" uid="uid://dix5y1s0rm3m" path="res://assets/decorum/door/medieval_door_1.png" id="9_t8dep"]
 [ext_resource type="Texture2D" uid="uid://nxpt2bh3r2h" path="res://assets/decorum/door/medieval_door_2.png" id="10_v4h7l"]
+[ext_resource type="PackedScene" path="res://scenes/shop_menu.tscn" id="17_hssty"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5dv4w"]
 vertices = PackedVector3Array(-11.062184, 4.424501, -3.6134453, -11.062184, 4.424501, 13.886555, 7.4378157, 4.424501, 13.886555, 7.4378157, 4.424501, -3.6134453, -10.062184, 0.42450082, -2.8634453, -10.062184, 0.42450082, -1.8634453, -8.562184, 0.42450082, -2.6134453, -4.8121843, 0.42450082, -2.8634453, -4.8121843, 0.6745008, -2.3634453, -2.8121843, 0.42450082, -2.6134453, -4.5621843, 0.6745008, 1.8865547, -5.8121843, 0.42450082, -0.11344528, -6.0621843, 0.42450082, 1.6365547, -6.5621843, 0.42450082, 3.8865547, -7.5621843, 0.42450082, 4.1365547, -8.062184, 0.42450082, 5.1365547, -6.5621843, 0.42450082, 1.8865547, -1.3121843, 0.42450082, 0.13655472, -2.5621843, 0.42450082, 0.13655472, -3.3121843, 0.6745008, 1.8865547, -10.062184, 0.42450082, 12.886555, 3.6878157, 0.42450082, 12.886555, 3.6878157, 0.42450082, -2.8634453, -0.81218433, 0.42450082, -2.8634453, -0.81218433, 0.42450082, -0.36344528, -9.312184, 0.42450082, 5.1365547, -10.062184, 0.42450082, 4.3865547)
@@ -217,3 +218,5 @@ shape = SubResource("BoxShape3D_rtkqb")
 transform = Transform3D(0.00029045617, 0, 0, 0, 0.007973342, 0, 0, 0, 0.00030815313, 0.42301604, 1.411788, -1.1989721)
 mesh = SubResource("ArrayMesh_fogte")
 skeleton = NodePath("")
+
+[node name="Shop_menu" parent="." instance=ExtResource("17_hssty")]

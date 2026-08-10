@@ -204,8 +204,10 @@ func add_shake(trauma: float) -> void:
 func _get_hud() -> HUD:
 	return get_tree().get_first_node_in_group("hud") as HUD
 func _is_menu_open() -> bool:
-	var menu := get_tree().get_first_node_in_group("upgrade_menu")
-	return menu != null and menu.visible
+	for menu in get_tree().get_nodes_in_group("blocking_menu"):
+		if menu.visible:
+			return true
+	return false
 func _tick_stamina(delta: float) -> void:
 	var draining := false
 

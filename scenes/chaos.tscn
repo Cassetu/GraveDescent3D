@@ -94,7 +94,7 @@ shadow_enabled = true
 distance_fade_enabled = true
 
 [node name="BloodParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8501656, -0.34603536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8501656, -0.34038556)
 emitting = false
 amount = 20
 lifetime = 0.4

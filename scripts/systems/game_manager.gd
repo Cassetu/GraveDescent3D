@@ -129,7 +129,7 @@ func apply_upgrade(id: String) -> void:
 			pass
 		"move_speed":
 			pass
-func apply_run_upgradae(id: String) -> void:
+func apply_run_upgradeDo(id: String) -> void:
 	run_upgrades.append(id)
 func get_roll_cooldown() -> float:
 	var base := 0.9

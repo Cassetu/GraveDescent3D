@@ -8,6 +8,10 @@ extends CanvasLayer
 @onready var shards_label: Label = %ShardsLabel
 @onready var stamina_bar: ProgressBar = %StaminaBar
 @onready var hp_label: Label = %HpLabel
+@onready var potion_count_label: Label = %PotionCountLabel
+@onready var potion_icon: TextureRect = %PotionIcon
+@onready var vigor_count_label: Label = %VigorCountLabel
+@onready var vigor_icon: TextureRect = %VigorIcon
 
 var _tween: Tween = null
 var _white_delay_timer: float = 0.0
@@ -26,9 +30,19 @@ func _ready() -> void:
 		_set_bars(player.hp, player.max_hp)
 	GameManager.souls_changed.connect(_on_souls_changed)
 	GameManager.shards_changed.connect(_on_shards_changed)
+	GameManager.consumables_changed.connect(_on_consumables_changed)
 	_on_souls_changed(GameManager.souls)
 	_on_shards_changed(GameManager.shards)
+	_on_consumables_changed()
 	_style_currency_labels()
+	if ResourceLoader.exists("res://assets/icons/health_potion.png"):
+		potion_icon.texture = load("res://assets/icons/health_potion.png")
+	if ResourceLoader.exists("res://assets/icons/vigor_draught.png"):
+		vigor_icon.texture = load("res://assets/icons/vigor_draught.png")
+
+func _on_consumables_changed() -> void:
+	potion_count_label.text = "%d/3" % GameManager.get_consumable_count("health_potion")
+	vigor_count_label.text = "%d/3" % GameManager.get_consumable_count("vigor_draught")
 
 func _style_currency_labels() -> void:
 	souls_label.add_theme_font_size_override("font_size", 46)
@@ -94,3 +108,4 @@ func heal(new_hp: int, max_hp: int) -> void:
 		_tween.kill()
 	red_bar.value = new_hp
 	white_bar.value = new_hp
+	hp_label.text = "%d / %d" % [new_hp, max_hp]

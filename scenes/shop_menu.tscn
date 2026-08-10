@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjk4506xfwrl8"]
+[gd_scene load_steps=7 format=3 uid="uid://djnvhwikxulu5"]
 
-[ext_resource type="Script" uid="uid://dua337ui4i45e" path="res://scripts/base/upgrade_menu.gd" id="1_ksfom"]
-[ext_resource type="Texture2D" uid="uid://cpk0nw2u33agf" path="res://assets/textures/ui/black.png" id="2_ksfom"]
+[ext_resource type="Script" uid="uid://cx0lrjvjcvntc" path="res://scripts/base/shop_menu.gd" id="1_shopx"]
+[ext_resource type="Texture2D" uid="uid://cpk0nw2u33agf" path="res://assets/textures/ui/black.png" id="2_shopx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e30j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop0"]
 content_margin_left = 16.0
 content_margin_top = 10.0
 content_margin_right = 16.0
@@ -19,7 +19,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksfom"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop1"]
 content_margin_left = 16.0
 content_margin_top = 10.0
 content_margin_right = 16.0
@@ -35,7 +35,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkuc8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop2"]
 content_margin_left = 16.0
 content_margin_top = 10.0
 content_margin_right = 16.0
@@ -51,7 +51,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vqdt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop3"]
 content_margin_left = 16.0
 content_margin_top = 10.0
 content_margin_right = 16.0
@@ -67,8 +67,8 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="Upgrade_menu" type="CanvasLayer" groups=["blocking_menu"]]
-script = ExtResource("1_ksfom")
+[node name="Shop_menu" type="CanvasLayer" groups=["blocking_menu", "shop_menu"]]
+script = ExtResource("1_shopx")
 
 [node name="Overlay" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -95,7 +95,7 @@ theme_override_constants/margin_bottom = 40
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 z_index = -1
 layout_mode = 2
-texture = ExtResource("2_ksfom")
+texture = ExtResource("2_shopx")
 expand_mode = 1
 stretch_mode = 6
 
@@ -115,11 +115,11 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
-text = "UPGRADES"
+text = "SHOP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoulLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="ShardLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.49411765, 0.8117647, 0.92941177, 1)
@@ -131,7 +131,7 @@ custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="UpgradeList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="ShopList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -146,8 +146,8 @@ theme_override_colors/font_hover_color = Color(0.9098039, 0.83137256, 0.5411765,
 theme_override_colors/font_hover_pressed_color = Color(0.6509804, 0.4862745, 0.23921569, 1)
 theme_override_colors/font_disabled_color = Color(0.22745098, 0.20784314, 0.1882353, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_0e30j")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ksfom")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jkuc8")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_6vqdt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_shop0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shop1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_shop2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shop3")
 text = "Close"

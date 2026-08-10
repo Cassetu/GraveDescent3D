@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0m3l1h7njfa1"]
+[gd_scene load_steps=6 format=3 uid="uid://c0m3l1h7njfa1"]
 
 [ext_resource type="Script" uid="uid://brleyx80adg86" path="res://scripts/systems/altar.gd" id="1_5mufx"]
 [ext_resource type="PackedScene" uid="uid://r6505ccqoou1" path="res://assets/decorum/altar/phantom_in_seal_altar.glb" id="1_s06ej"]
+[ext_resource type="Script" uid="uid://sig0dkggge1d" path="res://scripts/systems/shopkeeper.gd" id="3_1lajo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s06ej"]
 size = Vector3(1.003418, 3, 4.4604797)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1lajo"]
+height = 4.2939453
 
 [node name="Altar" type="Node3D"]
 script = ExtResource("1_5mufx")
@@ -24,3 +28,12 @@ shape = SubResource("BoxShape3D_s06ej")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25191605, 1.5, -1.8167541)
 shape = SubResource("BoxShape3D_s06ej")
+
+[node name="ShopKeeper" type="Node3D" parent="."]
+script = ExtResource("3_1lajo")
+
+[node name="GhostBody" type="StaticBody3D" parent="ShopKeeper"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopKeeper/GhostBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07582855, 1.1469727, 0.2576952)
+shape = SubResource("CapsuleShape3D_1lajo")

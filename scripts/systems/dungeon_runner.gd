@@ -2,7 +2,7 @@ class_name DungeonRunner
 extends Node3D
 
 @export var depth: int = 1
-@export var rooms_until_boss: int = 2
+@export var rooms_until_boss: int = 3
 
 var _rooms_completed: int = 0
 var _current_room: Node3D = null

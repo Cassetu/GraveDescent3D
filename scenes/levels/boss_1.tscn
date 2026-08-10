@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://csmee2rljnf5m"]
+[gd_scene load_steps=35 format=3 uid="uid://csmee2rljnf5m"]
 
 [ext_resource type="Script" uid="uid://cx66tpcyvm7sw" path="res://scripts/systems/boss_room.gd" id="1_lwmw0"]
 [ext_resource type="PackedScene" uid="uid://cfgysvqllubg4" path="res://scenes/sceneAssets/rooms/boss_rooma_model.tscn" id="2_8q6a3"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://boom4hpfqnoe0" path="res://scenes/sceneAssets/decorum/throne_model.tscn" id="23_hr68j"]
 [ext_resource type="PackedScene" uid="uid://51mla6und3jv" path="res://scenes/sceneAssets/decorum/table_model.tscn" id="24_cg57v"]
 [ext_resource type="PackedScene" uid="uid://dpht47jmwcspj" path="res://scenes/sceneAssets/decorum/rug_model.tscn" id="26_cn2bl"]
+[ext_resource type="PackedScene" uid="uid://wax2ycap2lha" path="res://scenes/sceneAssets/decorum/lustre_model.tscn" id="27_f82ro"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ynfht"]
 height = 1.2875977
@@ -539,3 +540,18 @@ transform = Transform3D(0.7856518, 0, 0.618669, 0, 1, 0, -0.618669, 0, 0.7856518
 
 [node name="rug_model2" parent="." instance=ExtResource("26_cn2bl")]
 transform = Transform3D(0.71544886, 0, -0.6986651, 0, 1, 0, 0.6986651, 0, 0.71544886, 22.89532, 0.12838408, 0.14172554)
+
+[node name="lustre_model2" parent="." instance=ExtResource("27_f82ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.996415, 17.133223, 13.873465)
+
+[node name="lustre_model5" parent="." instance=ExtResource("27_f82ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44586, 17.133223, 13.873465)
+
+[node name="lustre_model6" parent="." instance=ExtResource("27_f82ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.216507, 17.133223, 13.873465)
+
+[node name="lustre_model3" parent="." instance=ExtResource("27_f82ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.996415, 17.133223, 2.1154041)
+
+[node name="lustre_model4" parent="." instance=ExtResource("27_f82ro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.996415, 17.133223, 26.778051)

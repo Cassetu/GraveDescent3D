@@ -14,13 +14,13 @@ enum ChaosState { IDLE, WALKING, ABILITY, STAGGERED, DEAD }
 @onready var blood_particles: GPUParticles3D = $BloodParticles
 var _footstep_timer: float = 0.0
 
-#adjust
 var walk_step_interval: float = 0.5
 var strafe_step_interval: float = 0.6
 
 var _current_beam_length: float = 0.0
 var anim_controller: ChaosAnim = null
 var chaos_state: ChaosState = ChaosState.IDLE
+
 var _is_flying_smash: bool = false
 var _smash_target_vel: Vector3 = Vector3.ZERO
 var _phase: int = 1
@@ -49,7 +49,7 @@ const COOLDOWN_P2 := 2.5
 const COOLDOWN_P3 := 1.8
 
 func _ready() -> void:
-	print("[CHAOS] _ready start")
+	counts_for_flanking = false
 	max_hp = 600
 	move_speed = 3.5
 	attack_damage = 18

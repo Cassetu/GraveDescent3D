@@ -11,6 +11,7 @@ extends CharacterBody3D
 @export var can_patrol: bool = true
 @export var sight_range: float = 15.0
 @export var patrol_radius: float = 6.0
+@export var counts_for_flanking: bool = true
 
 var _patrol_timer: float = 0.0
 var _is_patrolling: bool = false
@@ -127,7 +128,7 @@ func _tick_chase(delta: float) -> void:
 func _get_flank_target() -> Vector3:
 	var squad: Array = []
 	for n in get_tree().get_nodes_in_group("enemy"):
-		if is_instance_valid(n) and (n.state == State.CHASE or n.state == State.ATTACK):
+		if is_instance_valid(n) and n.counts_for_flanking and (n.state == State.CHASE or n.state == State.ATTACK):
 			squad.append(n)
 	squad.sort_custom(func(a, b): return a.get_instance_id() < b.get_instance_id())
 
@@ -136,8 +137,20 @@ func _get_flank_target() -> Vector3:
 		return _player.global_position
 
 	var angle := (TAU / squad.size()) * slot
-	var offset := Vector3(cos(angle), 0.0, sin(angle)) * (attack_range *0.9)
-	return _player.global_position + offset
+	var offset := Vector3(cos(angle), 0.0, sin(angle)) * (attack_range * 0.9)
+	var candidate := _player.global_position + offset
+
+	var space_state := get_world_3d().direct_space_state
+	var start_pos := _player.global_position + Vector3(0.0, 1.0, 0.0)
+	var end_pos := candidate + Vector3(0.0, 1.0, 0.0)
+	var query := PhysicsRayQueryParameters3D.create(start_pos, end_pos)
+	query.exclude = [get_rid()]
+	query.collision_mask = 1
+	var result := space_state.intersect_ray(query)
+
+	if result:
+		return _player.global_position
+	return candidate
 func _tick_attack(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, 0.0, 15.0 * delta)
 	velocity.z = move_toward(velocity.z, 0.0, 15.0 * delta)

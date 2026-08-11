@@ -1,29 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://dx1kead27y6dy"]
+[gd_scene load_steps=11 format=4 uid="uid://dx1kead27y6dy"]
 
 [ext_resource type="Script" uid="uid://no5xwun33ref" path="res://scripts/systems/ambient_dungeon.gd" id="1_cnmx1"]
+[ext_resource type="Environment" uid="uid://b0wgkhpyoglb6" path="res://resources/env/cave_world_env.tres" id="1_mccfx"]
 [ext_resource type="AudioStream" uid="uid://bwecqjrffauao" path="res://assets/audio/ambient/rumble.mp3" id="2_rtw37"]
 [ext_resource type="AudioStream" uid="uid://dmgqx5cslkym7" path="res://assets/audio/ambient/rumble2.mp3" id="3_fvfp8"]
 [ext_resource type="ArrayOccluder3D" uid="uid://43xxvf78q87r" path="res://resources/occ/cave_a.occ" id="4_aqvug"]
 [ext_resource type="PackedScene" uid="uid://dih0jnydi6tew" path="res://scenes/sceneAssets/rooms/cave_aglb.tscn" id="5_t1yc6"]
-[ext_resource type="PackedScene" uid="uid://xqv53s7tjnha" path="res://scenes/monstrocity.tscn" id="7_cnmx1"]
 [ext_resource type="Script" uid="uid://dqsnpnvggwf4v" path="res://scripts/debug.gd" id="7_mtsqs"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4w1kq"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_carxe"]
-sky_material = SubResource("ProceduralSkyMaterial_4w1kq")
-
-[sub_resource type="Environment" id="Environment_j543m"]
-background_mode = 2
-sky = SubResource("Sky_carxe")
-tonemap_mode = 3
-ssao_enabled = true
-glow_enabled = true
-glow_intensity = 0.5
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.03
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_ciay3"]
 _data = {
@@ -46,7 +29,7 @@ size = Vector3(1.5776062, 3.2187805, 1.7638016)
 [node name="CaveA" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_j543m")
+environment = ExtResource("1_mccfx")
 
 [node name="VoxelGI" type="VoxelGI" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5276489, 4.741333, 3.0793457)
@@ -76,6 +59,3 @@ metadata/goes_deeper = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5117965, 1.7902281, 14.50721)
 shape = SubResource("BoxShape3D_m51mh")
-
-[node name="Monstrocity" parent="." instance=ExtResource("7_cnmx1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1819382, 1.160422, 10.119229)

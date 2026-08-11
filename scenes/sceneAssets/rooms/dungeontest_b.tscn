@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://d1c43oaxm3b47"]
+[gd_scene load_steps=45 format=4 uid="uid://d1c43oaxm3b47"]
 
 [ext_resource type="PackedScene" uid="uid://dproyaou4ugap" path="res://assets/rooms/dungeon-a-b/dungeontest-B.glb" id="1_xoii3"]
 [ext_resource type="Material" uid="uid://bkeg3u3ra6sqh" path="res://resources/materials/floor.tres" id="2_doqbe"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d3320to8a2yh" path="res://scenes/sceneAssets/decorum/crate.tscn" id="10_53oac"]
 [ext_resource type="PackedScene" uid="uid://c6rqx5b8h64uk" path="res://scenes/sceneAssets/decorum/sack.tscn" id="11_krrwf"]
 [ext_resource type="PackedScene" uid="uid://dqocbw20vbxh0" path="res://scenes/sceneAssets/decorum/coins_model.tscn" id="12_mqa7f"]
+[ext_resource type="Texture2D" uid="uid://ilhhxhlxtv6h" path="res://assets/rooms/base/base_dungeon_floor_sharandra_deviant.png" id="13_rgis7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rkyr"]
 albedo_texture = ExtResource("3_670gt")
@@ -190,6 +191,45 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dj320"]
 data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dncl"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("13_rgis7")
+uv1_scale = Vector3(2, 2, 1)
+uv1_offset = Vector3(0, -1, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nymq7"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yv7ev"]
+resource_name = "base_Cube_008"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//P/9f/z//nwAA/5//P/9fAAD/X////5//v/+f////X/+//x//f/9f/z//X/9//x//P/9f/3//n/8//5//f/9f/z//X/+//5//f/+f/7//X/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_7dncl"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA//8AAP///////wAA//8AAP///////////////wAA////vwAA//////+//////////78AAAAA////vwAAAAD//1TVAAD//wAAVNUAAP////9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAABU1f///////1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP///3//v/9//7//f/+//3//v/////////////////////9U1VTVVNVU1VTVVNVU1VTVAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nymq7")
 
 [node name="dungeontest-B" instance=ExtResource("1_xoii3")]
 
@@ -387,3 +427,31 @@ transform = Transform3D(0.9868755, 0, 0.84621316, 0, 1.3, 0, -0.84621316, 0, 0.9
 
 [node name="coins_model" parent="." index="25" instance=ExtResource("12_mqa7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.967619, 0.12720627, 13.623705)
+
+[node name="Cube_016" type="MeshInstance3D" parent="." index="26"]
+transform = Transform3D(9.64001, 0, 0, 0, 0.1713734, 0, 0, 0, 0.26337957, -1.8353875, 0.9050553, -3.610644)
+material_override = ExtResource("2_doqbe")
+material_overlay = ExtResource("2_doqbe")
+mesh = SubResource("ArrayMesh_yv7ev")
+skeleton = NodePath("")
+
+[node name="Cube_017" type="MeshInstance3D" parent="." index="27"]
+transform = Transform3D(9.64001, 0, 0, 0, 0.1713734, 0, 0, 0, 0.26337957, -1.8353875, 0.9050553, 31.62996)
+material_override = ExtResource("2_doqbe")
+material_overlay = ExtResource("2_doqbe")
+mesh = SubResource("ArrayMesh_yv7ev")
+skeleton = NodePath("")
+
+[node name="Cube_018" type="MeshInstance3D" parent="." index="28"]
+transform = Transform3D(7.4341397, 0, 0, 0, 0.1713734, 0, 0, 0, 0.40992472, 0.636523, 0.9050553, 25.99033)
+material_override = ExtResource("2_doqbe")
+material_overlay = ExtResource("2_doqbe")
+mesh = SubResource("ArrayMesh_yv7ev")
+skeleton = NodePath("")
+
+[node name="Cube_019" type="MeshInstance3D" parent="." index="29"]
+transform = Transform3D(-2.7974943e-07, 0, 0.4250569, 0, 0.1713734, 0, -6.3999205, 0, -1.8579827e-08, 2.5868008, 0.9050553, 19.64086)
+material_override = ExtResource("2_doqbe")
+material_overlay = ExtResource("2_doqbe")
+mesh = SubResource("ArrayMesh_yv7ev")
+skeleton = NodePath("")

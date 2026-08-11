@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7jolr6hmqy" path="res://scripts/enemies/chaos.gd" id="1_6gmbj"]
 [ext_resource type="Script" uid="uid://coigm7whi32l6" path="res://scripts/enemies/chaos_anim.gd" id="2_da4xr"]
-[ext_resource type="PackedScene" uid="uid://badfot5e5ntob" path="res://scenes/sceneAssets/enemies/chaos_model.tscn" id="3_jmu0j"]
+[ext_resource type="PackedScene" uid="uid://rckysc4ohiqa" path="res://scenes/sceneAssets/enemies/chaos_model.tscn" id="3_jmu0j"]
 [ext_resource type="AudioStream" uid="uid://bvfqe4hr1rlue" path="res://assets/audio/enemies/beast/flesh-beast.mp3" id="4_jmu0j"]
 [ext_resource type="AudioStream" uid="uid://cmgswtjdi4xew" path="res://assets/audio/enemies/beast/beast.tres" id="5_wnbjq"]
 [ext_resource type="AudioStream" uid="uid://bl5hc2n1jgc7a" path="res://assets/audio/walk-chaos.mp3" id="6_8uqan"]
@@ -18,7 +18,7 @@ height = 2.9595337
 _data = [Vector2(0.015151501, 0.6292135), 0.0, 0.0, 0, 0, Vector2(0.21969697, 0.73033714), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0.34831464), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_k885b"]
+[sub_resource type="CurveTexture" id="CurveTexture_8uqan"]
 curve = SubResource("Curve_k3bnd")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_62fkf"]
@@ -31,7 +31,7 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, -10, 0)
 scale_min = 0.5
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_k885b")
+scale_curve = SubResource("CurveTexture_8uqan")
 color = Color(0.31, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8uqan"]
@@ -87,11 +87,12 @@ bus = &"DungeonReverb"
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2111278, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12860662, 1.9034824, -1.1548369)
 light_color = Color(0.77, 0.74536, 0.40039998, 1)
-light_energy = 10.0
+light_energy = 3.081
 shadow_enabled = true
 distance_fade_enabled = true
+omni_range = 0.661
 
 [node name="BloodParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8501656, -0.34038556)

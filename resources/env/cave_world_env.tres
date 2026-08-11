@@ -1,0 +1,25 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://b0wgkhpyoglb6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4w1kq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_carxe"]
+sky_material = SubResource("ProceduralSkyMaterial_4w1kq")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_carxe")
+ambient_light_energy = 0.0
+tonemap_mode = 3
+ssao_enabled = true
+ssil_radius = 0.01
+glow_intensity = 0.11
+glow_strength = 0.0
+glow_hdr_scale = 1.56
+glow_hdr_luminance_cap = 10.67
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2522
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.24879594, 0.1415829, 0.14694357, 1)
+volumetric_fog_anisotropy = 0.39

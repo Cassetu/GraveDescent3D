@@ -88,6 +88,7 @@ func _on_room_exited(to_next_depth: bool) -> void:
 	_is_transitioning = true
 	
 	if _player:
+		_player.restore_stamina(_player.max_stamina)
 		_player.save_state()
 	_rooms_completed += 1
 	

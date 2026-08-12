@@ -8,5 +8,5 @@ void fragment() {
     vec2 center = uv - 0.5;
     float vignette = 1.0 - dot(center, center) * strength * 2.5;
     vignette = clamp(vignette, 0.0, 1.0);
-    COLOR = vec4(color.rgb, 1.0 - vignette);
+    COLOR = vec4(color.rgb, (1.0 - vignette) * 0.5);
 }

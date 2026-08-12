@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://c1xlthly5ctoc"]
+[gd_scene load_steps=54 format=4 uid="uid://c1xlthly5ctoc"]
 
 [ext_resource type="Script" uid="uid://cyih036pwo1ap" path="res://scripts/base.gd" id="1_33mrd"]
 [ext_resource type="PackedScene" uid="uid://cn1na7k035187" path="res://scenes/sceneAssets/rooms/base_model.tscn" id="1_aomoi"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://nxpt2bh3r2h" path="res://assets/decorum/door/medieval_door_2.png" id="18_b085t"]
 [ext_resource type="PackedScene" uid="uid://bjk4506xfwrl8" path="res://scenes/upgrade_menu.tscn" id="20_uo6h6"]
 [ext_resource type="PackedScene" uid="uid://b68gppu7mk8eg" path="res://scenes/hud.tscn" id="21_b085t"]
+[ext_resource type="PackedScene" uid="uid://b11iec1420r4f" path="res://scenes/pause_menu.tscn" id="22_ei55q"]
 [ext_resource type="PackedScene" uid="uid://ddkqrxmcq4wpd" path="res://scenes/sceneAssets/decorum/barrel.tscn" id="23_aomoi"]
 [ext_resource type="PackedScene" uid="uid://c6rqx5b8h64uk" path="res://scenes/sceneAssets/decorum/sack.tscn" id="24_ktrk3"]
 [ext_resource type="PackedScene" uid="uid://befhmcwttk13d" path="res://scenes/sceneAssets/decorum/barrel_side.tscn" id="26_03t26"]
@@ -365,6 +366,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9963651, 1.2588525, 3.79737
 autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource("21_b085t")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("22_ei55q")]
 
 [node name="Barrel" parent="." instance=ExtResource("23_aomoi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7273936, 0.38627124, -7)

@@ -75,6 +75,10 @@ func on_run_started() -> void:
 	run_upgrades.clear()
 
 func save() -> void:
+	var player := get_tree().get_first_node_in_group("player")
+	if player:
+		player_current_hp = player.hp
+		player_current_stamina = player.stamina
 	var data := {
 		"souls": souls,
 		"unlocked_upgrades": unlocked_upgrades,

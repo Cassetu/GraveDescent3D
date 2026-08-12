@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var new_run_confirm: ConfirmationDialog = %NewRunConfirmDialog
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	continue_btn.disabled = GameManager.player_current_hp == -1
 
 func _on_new_run_button_pressed() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dx1kead27y6dy"]
+[gd_scene load_steps=12 format=4 uid="uid://dx1kead27y6dy"]
 
 [ext_resource type="Script" uid="uid://no5xwun33ref" path="res://scripts/systems/ambient_dungeon.gd" id="1_cnmx1"]
 [ext_resource type="Environment" uid="uid://b0wgkhpyoglb6" path="res://resources/env/cave_world_env.tres" id="1_mccfx"]
@@ -7,6 +7,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://43xxvf78q87r" path="res://resources/occ/cave_a.occ" id="4_aqvug"]
 [ext_resource type="PackedScene" uid="uid://dih0jnydi6tew" path="res://scenes/sceneAssets/rooms/cave_aglb.tscn" id="5_t1yc6"]
 [ext_resource type="Script" uid="uid://dqsnpnvggwf4v" path="res://scripts/debug.gd" id="7_mtsqs"]
+[ext_resource type="PackedScene" uid="uid://dcvxoa1fp2ayi" path="res://scenes/scourger.tscn" id="8_4w1kq"]
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_ciay3"]
 _data = {
@@ -59,3 +60,12 @@ metadata/goes_deeper = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5117965, 1.7902281, 14.50721)
 shape = SubResource("BoxShape3D_m51mh")
+
+[node name="Scourger" parent="." instance=ExtResource("8_4w1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8424513, 0.20559274, -11.979908)
+
+[node name="Scourger2" parent="." instance=ExtResource("8_4w1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5465765, 0.20559318, 5.2490993)
+
+[node name="Scourger3" parent="." instance=ExtResource("8_4w1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9150987, 0.20559318, 7.844306)

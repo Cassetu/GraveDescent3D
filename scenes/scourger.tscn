@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcvxoa1fp2ayi"]
+[gd_scene load_steps=11 format=3 uid="uid://dcvxoa1fp2ayi"]
 
 [ext_resource type="PackedScene" uid="uid://x1nv2dhl77ha" path="res://scenes/sceneAssets/enemies/scourger_model.tscn" id="1_6piay"]
+[ext_resource type="Script" uid="uid://dd577tyr1657b" path="res://scripts/enemies/scourger.gd" id="1_dhjus"]
 [ext_resource type="Material" uid="uid://dcfd21r1osbj7" path="res://resources/materials/blood.tres" id="2_jx6m4"]
+[ext_resource type="Script" uid="uid://bnlltj5c7earo" path="res://scripts/enemies/scourger_anim.gd" id="3_lno5n"]
 [ext_resource type="AudioStream" uid="uid://bvfqe4hr1rlue" path="res://assets/audio/enemies/beast/flesh-beast.mp3" id="4_mwqtt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_klt76"]
+height = 2.0283203
 
 [sub_resource type="Curve" id="Curve_7pyo6"]
 _data = [Vector2(0.015151501, 0.6292135), 0.0, 0.0, 0, 0, Vector2(0.21969697, 0.73033714), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0.34831464), 0.0, 0.0, 0, 0]
@@ -28,11 +33,15 @@ color = Color(0.31, 0, 0, 1)
 material = ExtResource("2_jx6m4")
 size = Vector2(1, 1)
 
-[node name="Scourger" type="CharacterBody3D"]
+[node name="Scourger" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_dhjus")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0225458, 0)
+shape = SubResource("CapsuleShape3D_klt76")
 
 [node name="scourger_model" parent="." instance=ExtResource("1_6piay")]
+script = ExtResource("3_lno5n")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

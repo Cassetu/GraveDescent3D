@@ -15,6 +15,9 @@ var player_max_hp: int = 100
 var player_damage_bonus: int = 0
 var consumables: Dictionary = {}
 var run_upgrades: Array[String] = []
+var rooms_completed: int = 0
+var in_dungeon_run: bool = false
+var current_room_path: String = ""
 
 func _ready() -> void:
 	load_save()
@@ -58,6 +61,9 @@ func get_consumable_count(id: String) -> int:
 func on_player_died() -> void:
 	shards = 0
 	current_depth = 1
+	rooms_completed = 0
+	in_dungeon_run = false
+	current_room_path = ""
 	player_current_hp = -1
 	player_current_stamina = -1.0
 	consumables.clear()
@@ -69,16 +75,20 @@ func on_player_died() -> void:
 func on_run_started() -> void:
 	shards = 0
 	current_depth = 1
+	rooms_completed = 0
+	in_dungeon_run = true
+	current_room_path = ""
 	player_current_hp = -1
 	player_current_stamina = -1.0
 	consumables.clear()
 	run_upgrades.clear()
 
-func save() -> void:
-	var player := get_tree().get_first_node_in_group("player")
-	if player:
-		player_current_hp = player.hp
-		player_current_stamina = player.stamina
+func save(sync_player: bool = true) -> void:
+	if sync_player:
+		var player := get_tree().get_first_node_in_group("player")
+		if player:
+			player_current_hp = player.hp
+			player_current_stamina = player.stamina
 	var data := {
 		"souls": souls,
 		"unlocked_upgrades": unlocked_upgrades,
@@ -88,6 +98,10 @@ func save() -> void:
 		"player_current_stamina": player_current_stamina,
 		"consumables": consumables,
 		"run_upgrades": run_upgrades,
+		"current_depth": current_depth,
+		"rooms_completed": rooms_completed,
+		"in_dungeon_run": in_dungeon_run,
+		"current_room_path": current_room_path,
 	}
 	var file := FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
@@ -109,6 +123,10 @@ func load_save() -> void:
 	consumables = data.get("consumables", {})
 	var raw_run: Array = data.get("run_upgrades", [])
 	run_upgrades = Array(raw_run, TYPE_STRING, "", null)
+	current_depth = data.get("current_depth", 1)
+	rooms_completed = data.get("rooms_completed", 0)
+	in_dungeon_run = data.get("in_dungeon_run", false)
+	current_room_path = data.get("current_room_path", "")
 func reset_save() -> void:
 	if FileAccess.file_exists("user://save.json"):
 		DirAccess.remove_absolute(OS.get_user_data_dir() + "/save.json")
@@ -121,6 +139,10 @@ func reset_save() -> void:
 	player_current_stamina = -1.0
 	consumables.clear()
 	run_upgrades.clear()
+	current_depth = 1
+	rooms_completed = 0
+	in_dungeon_run = false
+	current_room_path = ""
 func save_player_state(hp: int, stamina: float) -> void:
 	player_current_hp = hp
 	player_current_stamina = stamina

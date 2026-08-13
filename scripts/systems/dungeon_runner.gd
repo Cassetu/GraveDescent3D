@@ -10,27 +10,44 @@ var _player: Player = null
 var _is_transitioning: bool = false
 
 var _visited_rooms: Array[String] = []
+var _last_picked_room_path: String = ""
 
 func _ready() -> void:	
+	depth = GameManager.current_depth
+	_rooms_completed = GameManager.rooms_completed
 	_player = preload("res://scenes/player.tscn").instantiate()
 	add_child(_player)
-	_load_random_room()
+	
+	if GameManager.in_dungeon_run and GameManager.current_room_path != "" and ResourceLoader.exists(GameManager.current_room_path):
+		var room_scene := ResourceLoader.load(GameManager.current_room_path, "", ResourceLoader.CACHE_MODE_IGNORE) as PackedScene
+		_visited_rooms.append(GameManager.current_room_path)
+		_instantiate_room(room_scene)
+	else:
+		_load_random_room()
 
 func _load_random_room() -> void:
-	if _current_room:
-		_current_room.queue_free()
-		_current_room = null
-
 	var room_scene: PackedScene
+	var picked_path: String
 
 	if _rooms_completed >= rooms_until_boss:
 		room_scene = _pick_boss_room()
+		picked_path = "res://scenes/levels/boss_%d.tscn" % depth
 	else:
 		room_scene = _pick_random_room(depth)
+		picked_path = _last_picked_room_path
 
 	if not room_scene:
 		push_error("DungeonRunner: no room found for depth %d" % depth)
 		return
+
+	_instantiate_room(room_scene)
+	GameManager.current_room_path = picked_path
+	GameManager.save(false)
+
+func _instantiate_room(room_scene: PackedScene) -> void:
+	if _current_room:
+		_current_room.queue_free()
+		_current_room = null
 
 	_current_room = room_scene.instantiate()
 	add_child(_current_room)
@@ -72,6 +89,7 @@ func _pick_random_room(target_depth: int) -> PackedScene:
 	var selected_room_path = files[0]
 	
 	_visited_rooms.append(selected_room_path)
+	_last_picked_room_path = selected_room_path
 	
 	return ResourceLoader.load(selected_room_path, "", ResourceLoader.CACHE_MODE_IGNORE) as PackedScene
 
@@ -96,6 +114,11 @@ func _on_room_exited(to_next_depth: bool) -> void:
 		depth += 1
 		_rooms_completed = 0
 		_visited_rooms.clear()
+	
+	if _player:
+		GameManager.current_depth = depth
+		GameManager.rooms_completed = _rooms_completed
+		GameManager.save()
 		
 	_fade_transition()
 

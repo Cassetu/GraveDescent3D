@@ -10,6 +10,8 @@ extends CharacterBody3D
 @export var gravity: float = 20.0
 @export var can_patrol: bool = true
 @export var sight_range: float = 15.0
+@export var view_angle_degrees: float = 100.0
+@export var visibility_ratio_required: float = 0.5
 @export var patrol_radius: float = 6.0
 @export var counts_for_flanking: bool = true
 
@@ -212,18 +214,33 @@ func _can_see_player() -> bool:
 	if to_player.length() > sight_range:
 		return false
 
+	var flat_to_player := to_player
+	flat_to_player.y = 0.0
+	if flat_to_player.length() > 0.01:
+		var forward := -global_basis.z
+		forward.y = 0.0
+		var dot := forward.normalized().dot(flat_to_player.normalized())
+		if dot < cos(deg_to_rad(view_angle_degrees * 0.5)):
+			return false
+
+	return _player_visibility_ratio() >= visibility_ratio_required
+
+func _player_visibility_ratio() -> float:
+	var eye_pos := global_position + Vector3(0.0, 1.0, 0.0)
+	var sample_heights := [1.2, 0.6, 0.0]
 	var space_state := get_world_3d().direct_space_state
-	var start_pos := global_position + Vector3(0.0, 1.0, 0.0)
-	var end_pos := _player.global_position + Vector3(0.0, 1.0, 0.0)
+	var visible_count := 0
 
-	var query := PhysicsRayQueryParameters3D.create(start_pos, end_pos)
-	query.exclude = [get_rid()]
-	query.collision_mask = 1
+	for h in sample_heights:
+		var target_pos := _player.global_position + Vector3(0.0, h, 0.0)
+		var query := PhysicsRayQueryParameters3D.create(eye_pos, target_pos)
+		query.exclude = [get_rid()]
+		query.collision_mask = 1
+		var result := space_state.intersect_ray(query)
+		if result and result.collider is Player:
+			visible_count += 1
 
-	var result := space_state.intersect_ray(query)
-	if result and result.collider is Player:
-		return true
-	return false
+	return float(visible_count) / sample_heights.size()
 func hear_noise(origin: Vector3) -> void:
 	if state == State.CHASE or state == State.ATTACK:
 		return

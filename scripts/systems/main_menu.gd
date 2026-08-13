@@ -5,7 +5,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	continue_btn.disabled = GameManager.player_current_hp == -1
+	continue_btn.disabled = not FileAccess.file_exists("user://save.json")
 
 func _on_new_run_button_pressed() -> void:
 	if FileAccess.file_exists("user://save.json"):
@@ -22,7 +22,10 @@ func _start_new_run() -> void:
 	get_tree().change_scene_to_file("res://scenes/base.tscn")
 
 func _on_continue_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/base.tscn")
+	if GameManager.in_dungeon_run:
+		get_tree().change_scene_to_file("res://scenes/levels/dungeon_runner.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/base.tscn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

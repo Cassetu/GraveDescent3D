@@ -1,9 +1,12 @@
 class_name PauseMenu
 extends CanvasLayer
 
+@export var show_save_button: bool = true
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
+	%SaveButton.visible = show_save_button
 	%SaveButton.pressed.connect(_on_save_pressed)
 	%SaveQuitButton.pressed.connect(_on_save_quit_pressed)
 	%OptionsButton.pressed.connect(_on_options_pressed)

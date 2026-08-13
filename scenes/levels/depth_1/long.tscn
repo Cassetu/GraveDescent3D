@@ -76,7 +76,7 @@ transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -7.5076456, 0.12684134, -16.700027)
 
 [node name="Beast" parent="." instance=ExtResource("6_whuq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1869593, 1.1574078, 14.058268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1869593, 1.1001751, 14.058268)
 
 [node name="SkeletonGlad" parent="." instance=ExtResource("7_fdnbw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.196188, 1.256902, -5.401488)

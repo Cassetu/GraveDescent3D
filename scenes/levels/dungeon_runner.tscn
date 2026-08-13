@@ -10,3 +10,4 @@ script = ExtResource("1_k41ts")
 [node name="HUD" parent="." instance=ExtResource("2_0rsuj")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_mumnr")]
+show_save_button = false

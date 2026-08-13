@@ -66,6 +66,8 @@ var roll_cooldown_timer: float = 0.0
 var roll_iframe_timer: float = 0.0
 var is_blocking: bool = false
 var can_attack: bool = true
+var _base_fov: float = 0.0
+var _fov_punch_tween: Tween = null
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -81,6 +83,7 @@ func _ready() -> void:
 	stamina_regen_rate = GameManager.get_effective_stamina_regen()
 	hp = GameManager.player_current_hp if GameManager.player_current_hp != -1 else max_hp
 	stamina = GameManager.player_current_stamina if GameManager.player_current_stamina != -1.0 else max_stamina
+	_base_fov = camera.fov
 func save_state() -> void:
 	GameManager.save_player_state(hp, stamina)
 func _unhandled_input(event: InputEvent) -> void:
@@ -330,10 +333,7 @@ func _swing() -> void:
 	slice_sfx.pitch_scale = randf_range(0.8, 1)
 	slice_sfx.play()
 	_make_noise(12.0)
-	var base_fov := camera.fov
-	var fov_tween = create_tween()
-	fov_tween.tween_property(camera, "fov", base_fov - 6.0, 0.05).set_trans(Tween.TRANS_SINE)
-	fov_tween.tween_property(camera, "fov", base_fov, 0.25).set_ease(Tween.EASE_OUT)
+	_punch_fov(-6.0, 0.05, 0.25)
 	
 	await get_tree().create_timer(0.1).timeout
 	
@@ -407,17 +407,22 @@ func _use_consumable(id: String) -> void:
 		"vigor_draught":
 			restore_stamina(40)
 func _play_impact_juice() -> void:
-	var base_fov := camera.fov
-	var fov_tween := create_tween()
-	fov_tween.set_ignore_time_scale(true)
-	fov_tween.tween_property(camera, "fov", base_fov + 10.0, 0.04).set_trans(Tween.TRANS_SINE)
-	fov_tween.tween_property(camera, "fov", base_fov, 0.3).set_ease(Tween.EASE_OUT)
+	_punch_fov(10.0, 0.04, 0.3, true)
 
 	Engine.time_scale = 0.25
 	var slow_tween := create_tween()
 	slow_tween.set_ignore_time_scale(true)
 	slow_tween.tween_interval(0.08)
 	slow_tween.tween_callback(func(): Engine.time_scale = 1.0)
+func _punch_fov(offset: float, punch_time: float, recover_time: float, ignore_time_scale: bool = false) -> void:
+	if _fov_punch_tween and _fov_punch_tween.is_valid():
+		_fov_punch_tween.kill()
+	camera.fov = _base_fov
+	_fov_punch_tween = create_tween()
+	if ignore_time_scale:
+		_fov_punch_tween.set_ignore_time_scale(true)
+	_fov_punch_tween.tween_property(camera, "fov", _base_fov + offset, punch_time).set_trans(Tween.TRANS_SINE)
+	_fov_punch_tween.tween_property(camera, "fov", _base_fov, recover_time).set_ease(Tween.EASE_OUT)
 func _tween_camera_hit(launch_dir: Vector3) -> void:
 	var hit_side = launch_dir.dot(global_basis.x)
 	var tilt = 0.08 if hit_side > 0 else -0.08

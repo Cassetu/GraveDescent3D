@@ -18,6 +18,7 @@ var run_upgrades: Array[String] = []
 var rooms_completed: int = 0
 var in_dungeon_run: bool = false
 var current_room_path: String = ""
+var bosses_defeated: int = 0
 
 func _ready() -> void:
 	load_save()
@@ -102,6 +103,7 @@ func save(sync_player: bool = true) -> void:
 		"rooms_completed": rooms_completed,
 		"in_dungeon_run": in_dungeon_run,
 		"current_room_path": current_room_path,
+		"bosses_defeated": bosses_defeated,
 	}
 	var file := FileAccess.open("user://save.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
@@ -127,6 +129,7 @@ func load_save() -> void:
 	rooms_completed = data.get("rooms_completed", 0)
 	in_dungeon_run = data.get("in_dungeon_run", false)
 	current_room_path = data.get("current_room_path", "")
+	bosses_defeated = data.get("bosses_defeated", 0)
 func reset_save() -> void:
 	if FileAccess.file_exists("user://save.json"):
 		DirAccess.remove_absolute(OS.get_user_data_dir() + "/save.json")
@@ -143,6 +146,7 @@ func reset_save() -> void:
 	rooms_completed = 0
 	in_dungeon_run = false
 	current_room_path = ""
+	bosses_defeated = 0
 func save_player_state(hp: int, stamina: float) -> void:
 	player_current_hp = hp
 	player_current_stamina = stamina

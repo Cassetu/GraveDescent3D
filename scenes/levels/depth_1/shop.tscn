@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dix5y1s0rm3m" path="res://assets/decorum/door/medieval_door_1.png" id="9_t8dep"]
 [ext_resource type="PackedScene" uid="uid://dqocbw20vbxh0" path="res://scenes/sceneAssets/decorum/coins_model.tscn" id="10_onlsf"]
 [ext_resource type="Texture2D" uid="uid://nxpt2bh3r2h" path="res://assets/decorum/door/medieval_door_2.png" id="10_v4h7l"]
-[ext_resource type="PackedScene" uid="uid://djnvhwikxulu5" path="res://scenes/shop_menu.tscn" id="17_hssty"]
+[ext_resource type="PackedScene" uid="uid://djnvhwikxulu5" path="res://scenes/ui/shop_menu.tscn" id="17_hssty"]
 [ext_resource type="PackedScene" uid="uid://co0ivwlhyfcgu" path="res://scenes/sceneAssets/decorum/full_banner_model.tscn" id="18_4t1hr"]
 [ext_resource type="PackedScene" uid="uid://51mla6und3jv" path="res://scenes/sceneAssets/decorum/table_model.tscn" id="19_5dv4w"]
 [ext_resource type="PackedScene" uid="uid://c8e5x62e18rsk" path="res://scenes/sceneAssets/decorum/chair_model.tscn" id="20_bmyh2"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://b11iec1420r4f"]
 
-[ext_resource type="Script" uid="uid://6sx0c0f8iy8r" path="res://scripts/systems/pause_menu.gd" id="1_pause"]
-[ext_resource type="StyleBox" path="res://resources/theme/button_normal.tres" id="2_normal"]
-[ext_resource type="StyleBox" path="res://resources/theme/button_hover.tres" id="3_hover"]
-[ext_resource type="StyleBox" path="res://resources/theme/button_pressed.tres" id="4_pressed"]
+[ext_resource type="Script" uid="uid://6sx0c0f8iy8r" path="res://scripts/systems/pause_menu.gd" id="1_8uki6"]
+[ext_resource type="StyleBox" path="res://resources/theme/button_normal.tres" id="2_0bnpd"]
+[ext_resource type="StyleBox" path="res://resources/theme/button_pressed.tres" id="3_4inpj"]
+[ext_resource type="StyleBox" path="res://resources/theme/button_hover.tres" id="4_8fwbo"]
 
 [node name="PauseMenu" type="CanvasLayer" groups=["pause_menu"]]
-script = ExtResource("1_pause")
+script = ExtResource("1_8uki6")
 
 [node name="Overlay" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -39,9 +39,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_normal")
-theme_override_styles/pressed = ExtResource("4_pressed")
-theme_override_styles/hover = ExtResource("3_hover")
+theme_override_styles/normal = ExtResource("2_0bnpd")
+theme_override_styles/pressed = ExtResource("3_4inpj")
+theme_override_styles/hover = ExtResource("4_8fwbo")
 text = "Save"
 
 [node name="SaveQuitButton" type="Button" parent="Center/VBoxContainer"]
@@ -49,9 +49,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_normal")
-theme_override_styles/pressed = ExtResource("4_pressed")
-theme_override_styles/hover = ExtResource("3_hover")
+theme_override_styles/normal = ExtResource("2_0bnpd")
+theme_override_styles/pressed = ExtResource("3_4inpj")
+theme_override_styles/hover = ExtResource("4_8fwbo")
 text = "Exit to Menu"
 
 [node name="OptionsButton" type="Button" parent="Center/VBoxContainer"]
@@ -59,9 +59,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_normal")
-theme_override_styles/pressed = ExtResource("4_pressed")
-theme_override_styles/hover = ExtResource("3_hover")
+theme_override_styles/normal = ExtResource("2_0bnpd")
+theme_override_styles/pressed = ExtResource("3_4inpj")
+theme_override_styles/hover = ExtResource("4_8fwbo")
 text = "Options"
 
 [node name="ReturnButton" type="Button" parent="Center/VBoxContainer"]
@@ -69,9 +69,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_normal")
-theme_override_styles/pressed = ExtResource("4_pressed")
-theme_override_styles/hover = ExtResource("3_hover")
+theme_override_styles/normal = ExtResource("2_0bnpd")
+theme_override_styles/pressed = ExtResource("3_4inpj")
+theme_override_styles/hover = ExtResource("4_8fwbo")
 text = "Return to Game"
 
 [node name="ExitConfirmDialog" type="ConfirmationDialog" parent="."]

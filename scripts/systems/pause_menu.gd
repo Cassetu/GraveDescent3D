@@ -49,7 +49,7 @@ func _on_exit_button_pressed() -> void:
 func _on_exit_confirm_dialog_confirmed() -> void:
 	GameManager.load_save()
 	_close()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func _on_options_pressed() -> void:
 	pass

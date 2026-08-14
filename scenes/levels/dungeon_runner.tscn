@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://e04b2rn23701"]
 
 [ext_resource type="Script" uid="uid://x3gswcrsnfln" path="res://scripts/systems/dungeon_runner.gd" id="1_k41ts"]
-[ext_resource type="PackedScene" uid="uid://b68gppu7mk8eg" path="res://scenes/hud.tscn" id="2_0rsuj"]
-[ext_resource type="PackedScene" uid="uid://b11iec1420r4f" path="res://scenes/pause_menu.tscn" id="3_mumnr"]
+[ext_resource type="PackedScene" uid="uid://b68gppu7mk8eg" path="res://scenes/ui/hud.tscn" id="2_0rsuj"]
+[ext_resource type="PackedScene" uid="uid://b11iec1420r4f" path="res://scenes/ui/pause_menu.tscn" id="3_mumnr"]
 
 [node name="DungeonRunner" type="Node3D"]
 script = ExtResource("1_k41ts")

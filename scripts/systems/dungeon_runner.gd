@@ -120,9 +120,9 @@ func _on_room_exited(to_next_depth: bool) -> void:
 		GameManager.rooms_completed = _rooms_completed
 		GameManager.save()
 		
-	_fade_transition()
+	_fade_transition(to_next_depth)
 
-func _fade_transition() -> void:
+func _fade_transition(show_letter: bool) -> void:
 	var canvas := CanvasLayer.new()
 	canvas.layer = 10
 	add_child(canvas)
@@ -134,16 +134,36 @@ func _fade_transition() -> void:
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(overlay)
 
-	var tween := create_tween()
-	tween.tween_property(overlay, "modulate:a", 1.0, 0.35)\
+	var fade_out := create_tween()
+	fade_out.tween_property(overlay, "modulate:a", 1.0, 0.35)\
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(_load_random_room)
-	tween.tween_property(overlay, "modulate:a", 0.0, 0.5)\
+	await fade_out.finished
+	_load_random_room()
+
+	if show_letter:
+		GameManager.bosses_defeated += 1
+		GameManager.save(false)
+		var letter_data := LetterContent.get_letter(GameManager.bosses_defeated)
+		if not letter_data.is_empty():
+			if _player:
+				_player.set_physics_process(false)
+				_player.set_process_unhandled_input(false)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			var panel := preload("res://scenes/ui/letter_panel.tscn").instantiate()
+			canvas.add_child(panel)
+			panel.setup(letter_data.text, letter_data.signature)
+			await panel.continued
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if _player:
+				_player.set_physics_process(true)
+				_player.set_process_unhandled_input(true)
+
+	var fade_in := create_tween()
+	fade_in.tween_property(overlay, "modulate:a", 0.0, 0.5)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(func():
-		canvas.queue_free()
-		_is_transitioning = false 
-	)
+	await fade_in.finished
+	canvas.queue_free()
+	_is_transitioning = false
 
 func player_died() -> void:
 	GameManager.save()

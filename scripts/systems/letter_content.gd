@@ -3,27 +3,35 @@ class_name LetterContent
 const LETTERS: Array[Dictionary] = [
 	{
 		"signature": "You",
-		"text": "I sealed the door today. I told everyone Corin wandered off. I don't think I did the right thing.",
+		"text": ""
 	},
 	{
 		"signature": "Corin",
-		"text": "Three days now. I keep hoping the door opens. It doesn't.",
+		"text": ""
 	},
 	{
 		"signature": "You",
-		"text": "Mother asked me again if I've heard anything. I said no. I keep saying no.",
+		"text": ""
 	},
 	{
 		"signature": "Corin",
-		"text": "I found water further down. I'm not dying today at least.",
+		"text": ""
 	},
 	{
 		"signature": "You",
-		"text": "I keep telling myself they wouldn't have survived anyway. I don't believe that anymore.",
+		"text": ""
 	},
 	{
 		"signature": "Corin",
-		"text": "I don't think they're coming back for me. I think they meant to leave me here.",
+		"text": ""
+			},
+	{
+		"signature": "You",
+		"text": ""
+			},
+	{
+		"signature": "Corin",
+		"text": ""
 	},
 ]
 

@@ -61,6 +61,13 @@ tracks/0/keys = {
 "method": &"play_intro_roar"
 }]
 }
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneCamera")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 10.12, 6, 6)
 
 [sub_resource type="Animation" id="Animation_mrveh"]
 resource_name = "intro"
@@ -71,14 +78,14 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("CutsceneCamera")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 20.080284, 6.058836, 13.865581, 0.7, 1, 10.234994, 4.9772496, 11.069781, 2, 1, -4.7027626, 2.968589, 13.865581)
+tracks/0/keys = PackedFloat32Array(0, 1, 20.080284, 6.058836, 13.865581, 0.7001, 1, 4.9179964, 6, 18.949, 2, 1, -4.7027626, 2.968589, 13.865581)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("CutsceneCamera")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.84341484, 0, 0.53726286, 0.7, 1, 0, 0.9956056, 0, 0.093645796, 2, 1, 0, -0.70710677, 0, 0.70710677)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.84341484, 0, 0.53726286, 0.7, 1, -0.0854003, -0.19893304, -0.017404389, 0.9761299, 2, 1, 0, -0.70710677, 0, 0.70710677)
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -432,7 +439,7 @@ libraries = {
 }
 
 [node name="CutsceneCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.4226972, 0, 0.906271, 0, 1, 0, -0.906271, 0, -0.4226972, 20.080284, 6.058836, 13.865581)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.12, 6, 6)
 
 [node name="VoxelGI" type="VoxelGI" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.852936, 8.544678, 11.701019)
@@ -499,15 +506,9 @@ size = Vector3(2.660797, 2.397461, 2.9458036)
 texture_albedo = ExtResource("21_lt0r3")
 modulate = Color(0.64995646, 0.64995646, 0.64995646, 0.82800007)
 
-[node name="BloodDecal6" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638355, 2.1337585, -0.61819935)
-size = Vector3(2.660797, 0.96951437, 2.9458036)
-texture_albedo = ExtResource("21_lt0r3")
-modulate = Color(0.64995646, 0.64995646, 0.64995646, 0.77400005)
-
 [node name="BloodDecal7" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.68120456, 1.9964542, 6.652202)
-size = Vector3(2.660797, 0.96951437, 2.9458036)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.68120456, 1.9964542, 6.998769)
+size = Vector3(2.660797, 0.021591686, 2.9458036)
 texture_albedo = ExtResource("21_lt0r3")
 modulate = Color(0.64995646, 0.64995646, 0.64995646, 0.337)
 

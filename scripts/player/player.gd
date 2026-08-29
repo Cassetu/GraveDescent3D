@@ -270,8 +270,10 @@ func _physics_process(delta: float) -> void:
 		roll_cooldown_timer -= delta
 	if roll_iframe_timer > 0.0:
 		roll_iframe_timer -= delta
-
+	
+	StairStepper.try_step_up(self, 0.3, 0.2, 0.25)
 	move_and_slide()
+	
 func _handle_move(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var forward := -global_basis.z

@@ -22,6 +22,7 @@
 * ["Satanic lord throne" by DarksProducer](https://skfb.ly/Su89) is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/)
 * ["Lustre" by DJMaesen](https://skfb.ly/6AR9M) is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/)
 * ["Black Rat ( Free download )" by Nestaeric](https://skfb.ly/p9TYP) is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/)
+* [Gold Skull Glory Sword (Game-Ready)](https://skfb.ly/pLTqS) is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/)
 
 ### Creative Commons Attribution-NonCommercial
 * [Haunted Mansion: Seance Room Book and Lectern by WED Designs](https://sketchfab.com/3d-models/haunted-mansion-seance-room-book-and-lectern-1fef98b5419b411bafb217509cd52434) is licensed under Creative Commons Attribution-NonCommercial

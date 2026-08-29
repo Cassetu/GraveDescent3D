@@ -40,8 +40,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 	_process_state(delta)
-
+	StairStepper.try_step_up(self, 0.3, 0.2, 0.25)
 	move_and_slide()
+	
 
 func _process_state(delta: float) -> void:
 	match state:

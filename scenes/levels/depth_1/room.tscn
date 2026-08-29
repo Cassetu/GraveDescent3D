@@ -74,7 +74,7 @@ navigation_mesh = SubResource("NavigationMesh_k8q2r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8127396, 0.37562063, 19.741606)
 
 [node name="chair_model" parent="NavigationRegion3D" instance=ExtResource("5_vkyib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3549, 0.08353686, 12.251091)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1779628, 0.08353686, 12.251091)
 
 [node name="BarrelSide" parent="NavigationRegion3D" instance=ExtResource("4_hhbdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7118547, 0.12684134, 24.575764)

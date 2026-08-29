@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://d1c43oaxm3b47"]
+[gd_scene load_steps=46 format=4 uid="uid://d1c43oaxm3b47"]
 
 [ext_resource type="PackedScene" uid="uid://dproyaou4ugap" path="res://assets/rooms/dungeon-a-b/dungeontest-B.glb" id="1_xoii3"]
 [ext_resource type="Material" uid="uid://bkeg3u3ra6sqh" path="res://resources/materials/floor.tres" id="2_doqbe"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c6rqx5b8h64uk" path="res://scenes/sceneAssets/decorum/sack.tscn" id="11_krrwf"]
 [ext_resource type="PackedScene" uid="uid://dqocbw20vbxh0" path="res://scenes/sceneAssets/decorum/coins_model.tscn" id="12_mqa7f"]
 [ext_resource type="Texture2D" uid="uid://ilhhxhlxtv6h" path="res://assets/rooms/base/base_dungeon_floor_sharandra_deviant.png" id="13_rgis7"]
+[ext_resource type="PackedScene" uid="uid://bgm7wxc84kv0d" path="res://scenes/sceneAssets/rooms/arch.tscn" id="14_yv7ev"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rkyr"]
 albedo_texture = ExtResource("3_670gt")
@@ -455,3 +456,6 @@ material_override = ExtResource("2_doqbe")
 material_overlay = ExtResource("2_doqbe")
 mesh = SubResource("ArrayMesh_yv7ev")
 skeleton = NodePath("")
+
+[node name="Arch" parent="." index="30" instance=ExtResource("14_yv7ev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.983152, 0.12901011, 10.91856)
